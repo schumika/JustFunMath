@@ -1,24 +1,209 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad10_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="JustFunMath" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brickWall.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="OBc-wf-Ehr">
+                                <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackboard2.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="iAU-k4-c8W">
+                                <rect key="frame" x="20" y="20" width="1140" height="780"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gEn-ZT-afn">
+                                <rect key="frame" x="190.5" y="33" width="800.5" height="754"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ordoneaza crescator sirul de numere:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ryj-ep-fDX">
+                                        <rect key="frame" x="12" y="44" width="776.5" height="151"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="50"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="juv-5e-gOv">
+                                        <rect key="frame" x="30" y="342" width="740.5" height="70"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kg5-UH-EcY" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="126.5" height="70"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785962253273" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="7"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q2W-QC-FDP" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
+                                                <rect key="frame" x="153.5" y="0.0" width="126.5" height="70"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="7"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UqG-J5-ZWM" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
+                                                <rect key="frame" x="307" y="0.0" width="126.5" height="70"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="7"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NnT-QI-zuc" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
+                                                <rect key="frame" x="460.5" y="0.0" width="126.5" height="70"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="7"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v7u-UY-mZH" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
+                                                <rect key="frame" x="614" y="0.0" width="126.5" height="70"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="7"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="saJ-yu-gHN"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="em7-dK-yZl">
+                                        <rect key="frame" x="30" y="610" width="743" height="70"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mI8-SR-daq" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="127" height="70"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="7"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="up5-xq-5Ek" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
+                                                <rect key="frame" x="154" y="0.0" width="127" height="70"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="7"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yHE-xI-tHO" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
+                                                <rect key="frame" x="308" y="0.0" width="127" height="70"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="7"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Axa-RM-yFO" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
+                                                <rect key="frame" x="462" y="0.0" width="127" height="70"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="7"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQN-Qh-JcR" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
+                                                <rect key="frame" x="616" y="0.0" width="127" height="70"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="7"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="U4c-Bq-5w8"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="em7-dK-yZl" secondAttribute="trailing" constant="27.5" id="1WY-Zy-5Y3"/>
+                                    <constraint firstItem="Ryj-ep-fDX" firstAttribute="top" secondItem="gEn-ZT-afn" secondAttribute="top" constant="44" id="9kK-V9-BJJ"/>
+                                    <constraint firstItem="juv-5e-gOv" firstAttribute="centerX" secondItem="gEn-ZT-afn" secondAttribute="centerX" id="Nf1-aX-MeR"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ryj-ep-fDX" secondAttribute="trailing" constant="12" id="OK4-Y3-ubV"/>
+                                    <constraint firstAttribute="bottom" secondItem="em7-dK-yZl" secondAttribute="bottom" constant="74" id="QdL-7t-u4t"/>
+                                    <constraint firstItem="Ryj-ep-fDX" firstAttribute="height" secondItem="gEn-ZT-afn" secondAttribute="height" multiplier="1:5" id="WIU-6K-0Og"/>
+                                    <constraint firstItem="juv-5e-gOv" firstAttribute="centerY" secondItem="gEn-ZT-afn" secondAttribute="centerY" id="X4b-z7-Dd1"/>
+                                    <constraint firstItem="em7-dK-yZl" firstAttribute="leading" secondItem="gEn-ZT-afn" secondAttribute="leading" constant="30" id="aeK-9G-oVT"/>
+                                    <constraint firstItem="Ryj-ep-fDX" firstAttribute="leading" secondItem="gEn-ZT-afn" secondAttribute="leading" constant="12" id="eax-41-FZw"/>
+                                    <constraint firstItem="juv-5e-gOv" firstAttribute="leading" secondItem="gEn-ZT-afn" secondAttribute="leading" constant="30" id="g0d-6J-9gs"/>
+                                    <constraint firstAttribute="trailing" secondItem="juv-5e-gOv" secondAttribute="trailing" constant="30" id="tFD-vO-e0e"/>
+                                    <constraint firstItem="em7-dK-yZl" firstAttribute="height" secondItem="juv-5e-gOv" secondAttribute="height" id="yt9-EY-94n"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v3a-vO-6zA" userLabel="LeftSeparator">
+                                <rect key="frame" x="33" y="32" width="163" height="755"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mxq-Zl-6Dj" userLabel="RightSeparator">
+                                <rect key="frame" x="988" y="33" width="159" height="754"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iAU-k4-c8W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="0VL-8S-4T7"/>
+                            <constraint firstAttribute="bottom" secondItem="OBc-wf-Ehr" secondAttribute="bottom" id="8aR-Mu-z6D"/>
+                            <constraint firstItem="mxq-Zl-6Dj" firstAttribute="top" secondItem="iAU-k4-c8W" secondAttribute="top" constant="13" id="9AZ-Gi-bB6"/>
+                            <constraint firstItem="OBc-wf-Ehr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Cs1-17-q85"/>
+                            <constraint firstItem="mxq-Zl-6Dj" firstAttribute="trailing" secondItem="iAU-k4-c8W" secondAttribute="trailing" constant="-13" id="HSo-JY-qw5"/>
+                            <constraint firstItem="v3a-vO-6zA" firstAttribute="top" secondItem="iAU-k4-c8W" secondAttribute="top" constant="12" id="KPt-R2-Ubo"/>
+                            <constraint firstItem="mxq-Zl-6Dj" firstAttribute="bottom" secondItem="iAU-k4-c8W" secondAttribute="bottom" constant="-13" id="NK0-jZ-hx7"/>
+                            <constraint firstItem="iAU-k4-c8W" firstAttribute="bottom" secondItem="OBc-wf-Ehr" secondAttribute="bottom" constant="-20" id="QL0-vA-loo"/>
+                            <constraint firstItem="v3a-vO-6zA" firstAttribute="width" secondItem="mxq-Zl-6Dj" secondAttribute="width" multiplier="1.02333" id="QrE-bC-5k8"/>
+                            <constraint firstItem="gEn-ZT-afn" firstAttribute="leading" secondItem="v3a-vO-6zA" secondAttribute="trailing" constant="-5.3333333333333144" id="SRu-Fw-8Dl"/>
+                            <constraint firstItem="OBc-wf-Ehr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VGA-xY-6dG"/>
+                            <constraint firstAttribute="trailing" secondItem="OBc-wf-Ehr" secondAttribute="trailing" id="b0m-xr-h9q"/>
+                            <constraint firstItem="gEn-ZT-afn" firstAttribute="top" secondItem="iAU-k4-c8W" secondAttribute="top" constant="13" id="eXI-6J-e5p"/>
+                            <constraint firstItem="iAU-k4-c8W" firstAttribute="top" secondItem="OBc-wf-Ehr" secondAttribute="top" constant="20" id="ey6-yK-jMx"/>
+                            <constraint firstItem="mxq-Zl-6Dj" firstAttribute="leading" secondItem="gEn-ZT-afn" secondAttribute="trailing" constant="-3" id="f1h-ko-Gix"/>
+                            <constraint firstItem="iAU-k4-c8W" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-20" id="gKR-xD-HIX"/>
+                            <constraint firstItem="v3a-vO-6zA" firstAttribute="width" secondItem="iAU-k4-c8W" secondAttribute="width" multiplier="1:7" id="jaD-JL-ntL"/>
+                            <constraint firstItem="v3a-vO-6zA" firstAttribute="leading" secondItem="iAU-k4-c8W" secondAttribute="leading" constant="13" id="kNZ-dH-xa7"/>
+                            <constraint firstItem="gEn-ZT-afn" firstAttribute="bottom" secondItem="iAU-k4-c8W" secondAttribute="bottom" constant="-13" id="mqn-Kd-osE"/>
+                            <constraint firstItem="v3a-vO-6zA" firstAttribute="bottom" secondItem="iAU-k4-c8W" secondAttribute="bottom" constant="-13" id="nba-LL-MfN"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="canvas" destination="gEn-ZT-afn" id="0tm-x0-V3y"/>
+                        <outlet property="inputStack" destination="juv-5e-gOv" id="BYL-gS-pfi"/>
+                        <outlet property="outputStack" destination="em7-dK-yZl" id="CLi-PG-id7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.77966101694915" y="100.97560975609755"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="blackboard2.jpeg" width="2268" height="1276"/>
+        <image name="brickWall.jpg" width="5472" height="3648"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
