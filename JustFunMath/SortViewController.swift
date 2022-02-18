@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SortViewController.swift
 //  JustFunMath
 //
 //  Created by Calugar Anca Maria on 16.02.2022.
@@ -7,25 +7,37 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
-    @IBOutlet weak var canvas: UIView!
+class SortViewController: BoardViewController {
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var inputStack: UIStackView!
+    @IBOutlet weak var rightWrongLabel: UILabel!
     @IBOutlet weak var outputStack: UIStackView!
+    
+    var sortAscending = false
+    var unsortedArray: [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         self.configureBoard()
     }
     
     func configureBoard() {
-        let inputValues = [5, 2, 6, 3, 1]
+        self.unsortedArray = SortArrayDataProvider(level: 1).unsortedArray()
+        self.sortAscending = Bool.random()
         
-        self.configure(views: inputStack.arrangedSubviews, with: inputValues.map { "\($0)" })
-        self.configure(views: outputStack.arrangedSubviews, with: Array(repeating: "", count: inputValues.count))
+        self.sortCompleted = false
+        
+        self.configure(views: inputStack.arrangedSubviews, with: unsortedArray.map { "\($0)" })
+        self.configure(views: outputStack.arrangedSubviews, with: Array(repeating: "", count: unsortedArray.count))
+        self.titleLabel.text = "Ordoneaza \(self.sortAscending ? "CRESCATOR" : "DESCRESCATOR") sirul de numere"
     }
     
     func configure(views: [UIView], with strings: [String]) {
@@ -40,6 +52,12 @@ class ViewController: UIViewController {
     var panTrackingPoint = CGPoint.zero
     var panStartingPoint = CGPoint.zero
     var selectedView: RoundLabelView?
+    
+    var sortCompleted = false {
+        didSet {
+            self.doneButton.isEnabled = sortCompleted
+        }
+    }
 
     @IBAction func handlePan(_ recognizer: UIPanGestureRecognizer) {
         guard let movingLabel = recognizer.view as? TouchableLabel else { return }
@@ -77,9 +95,42 @@ class ViewController: UIViewController {
             self.panTrackingPoint = CGPoint.zero
             self.panStartingPoint = CGPoint.zero
             
+            guard let subviews = self.outputStack.arrangedSubviews as? [RoundLabelView] else { return }
+            self.sortCompleted = self.isFull(array: subviews)
+            
         default:
             break;
         }
+    }
+    @IBAction func doneButtonClicked(_ sender: Any) {
+        guard let subviews = self.outputStack.arrangedSubviews as? [RoundLabelView] else { return }
+        
+        let sortedArray = self.sortAscending ? self.unsortedArray.sorted() : self.unsortedArray.sorted().reversed()
+        
+        if sortedArray == self.extractedSolution(array: subviews) {
+            print("Corect")
+            self.rightWrongLabel.isHidden = false
+            
+            UIView.animate(withDuration: 5.0) {
+                self.rightWrongLabel.transform.scaledBy(x: 0.5, y: 0.5)
+            } completion: { _ in
+                self.rightWrongLabel.isHidden = true
+                
+                UIView.animate(withDuration: 0.5, delay: 1.0) {
+                    self.configureBoard()
+                }
+            }
+        } else {
+            print("Gresit")
+        }
+    }
+    
+    func isFull(array: [RoundLabelView]) -> Bool {
+        array.first { ($0.label.text ?? "")?.isEmpty ?? false } == nil
+    }
+    
+    func extractedSolution(array: [RoundLabelView]) -> [Int] {
+        return array.compactMap { Int($0.label.text ?? "") }
     }
 }
 
@@ -88,8 +139,8 @@ extension UIView {
         let movingViewFrame = self.convert(self.bounds, to: container)
         let targetViewFrame = targetView.convert(targetView.bounds, to: container)
         
-        guard (abs(targetViewFrame.origin.x.distance(to: movingViewFrame.origin.x)) < 50.0) &&
-                (abs(targetViewFrame.origin.y.distance(to: movingViewFrame.origin.y)) < 50.0) else { return false }
+        guard (abs(targetViewFrame.origin.x.distance(to: movingViewFrame.origin.x)) < 85.0) &&
+                (abs(targetViewFrame.origin.y.distance(to: movingViewFrame.origin.y)) < 70.0) else { return false }
         
         
         return true

@@ -10,9 +10,12 @@
 		580DF2F127BE395900C1CBF4 /* LazyNibLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580DF2F027BE395900C1CBF4 /* LazyNibLoader.swift */; };
 		580DF2F427BE3BDB00C1CBF4 /* RoundLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580DF2F327BE3BDB00C1CBF4 /* RoundLabelView.swift */; };
 		580DF2F627BE3BF200C1CBF4 /* RoundLabelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 580DF2F527BE3BF200C1CBF4 /* RoundLabelView.xib */; };
+		580DF2F827BE8C1400C1CBF4 /* SortArrayDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580DF2F727BE8C1400C1CBF4 /* SortArrayDataProvider.swift */; };
+		5844BD3227BF8F28001788DA /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5844BD3127BF8F28001788DA /* BoardViewController.swift */; };
+		5844BD3427BF8F61001788DA /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5844BD3327BF8F61001788DA /* MenuViewController.swift */; };
 		58F7CB1227BD08D800167097 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F7CB1127BD08D800167097 /* AppDelegate.swift */; };
 		58F7CB1427BD08D800167097 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F7CB1327BD08D800167097 /* SceneDelegate.swift */; };
-		58F7CB1627BD08D800167097 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F7CB1527BD08D800167097 /* ViewController.swift */; };
+		58F7CB1627BD08D800167097 /* SortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F7CB1527BD08D800167097 /* SortViewController.swift */; };
 		58F7CB1927BD08D800167097 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58F7CB1727BD08D800167097 /* Main.storyboard */; };
 		58F7CB1B27BD08DA00167097 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58F7CB1A27BD08DA00167097 /* Assets.xcassets */; };
 		58F7CB1E27BD08DA00167097 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58F7CB1C27BD08DA00167097 /* LaunchScreen.storyboard */; };
@@ -25,10 +28,13 @@
 		580DF2F027BE395900C1CBF4 /* LazyNibLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyNibLoader.swift; sourceTree = "<group>"; };
 		580DF2F327BE3BDB00C1CBF4 /* RoundLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundLabelView.swift; sourceTree = "<group>"; };
 		580DF2F527BE3BF200C1CBF4 /* RoundLabelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoundLabelView.xib; sourceTree = "<group>"; };
+		580DF2F727BE8C1400C1CBF4 /* SortArrayDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortArrayDataProvider.swift; sourceTree = "<group>"; };
+		5844BD3127BF8F28001788DA /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
+		5844BD3327BF8F61001788DA /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		58F7CB0E27BD08D800167097 /* JustFunMath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustFunMath.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F7CB1127BD08D800167097 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58F7CB1327BD08D800167097 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		58F7CB1527BD08D800167097 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		58F7CB1527BD08D800167097 /* SortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortViewController.swift; sourceTree = "<group>"; };
 		58F7CB1827BD08D800167097 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		58F7CB1A27BD08DA00167097 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		58F7CB1D27BD08DA00167097 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -81,7 +87,10 @@
 			children = (
 				58F7CB1127BD08D800167097 /* AppDelegate.swift */,
 				58F7CB1327BD08D800167097 /* SceneDelegate.swift */,
-				58F7CB1527BD08D800167097 /* ViewController.swift */,
+				58F7CB1527BD08D800167097 /* SortViewController.swift */,
+				5844BD3327BF8F61001788DA /* MenuViewController.swift */,
+				5844BD3127BF8F28001788DA /* BoardViewController.swift */,
+				580DF2F727BE8C1400C1CBF4 /* SortArrayDataProvider.swift */,
 				580DF2F327BE3BDB00C1CBF4 /* RoundLabelView.swift */,
 				580DF2F527BE3BF200C1CBF4 /* RoundLabelView.xib */,
 				580DF2F027BE395900C1CBF4 /* LazyNibLoader.swift */,
@@ -168,11 +177,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58F7CB1627BD08D800167097 /* ViewController.swift in Sources */,
+				5844BD3227BF8F28001788DA /* BoardViewController.swift in Sources */,
+				58F7CB1627BD08D800167097 /* SortViewController.swift in Sources */,
 				58F7CB1227BD08D800167097 /* AppDelegate.swift in Sources */,
 				580DF2F127BE395900C1CBF4 /* LazyNibLoader.swift in Sources */,
 				58F7CB1427BD08D800167097 /* SceneDelegate.swift in Sources */,
+				580DF2F827BE8C1400C1CBF4 /* SortArrayDataProvider.swift in Sources */,
 				580DF2F427BE3BDB00C1CBF4 /* RoundLabelView.swift in Sources */,
+				5844BD3427BF8F61001788DA /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +333,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2GZK3GQWD5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JustFunMath/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -334,7 +347,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alarm.JustFunMath;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alarm.Alarm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -349,6 +362,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2GZK3GQWD5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JustFunMath/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -362,7 +376,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alarm.JustFunMath;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alarm.Alarm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
