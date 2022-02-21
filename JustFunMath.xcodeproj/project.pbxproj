@@ -13,6 +13,7 @@
 		580DF2F827BE8C1400C1CBF4 /* SortArrayDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580DF2F727BE8C1400C1CBF4 /* SortArrayDataProvider.swift */; };
 		5844BD3227BF8F28001788DA /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5844BD3127BF8F28001788DA /* BoardViewController.swift */; };
 		5844BD3427BF8F61001788DA /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5844BD3327BF8F61001788DA /* MenuViewController.swift */; };
+		58F13AC127C3A2CF001D068E /* SortViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F13AC027C3A2CE001D068E /* SortViewModel.swift */; };
 		58F7CB1227BD08D800167097 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F7CB1127BD08D800167097 /* AppDelegate.swift */; };
 		58F7CB1427BD08D800167097 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F7CB1327BD08D800167097 /* SceneDelegate.swift */; };
 		58F7CB1627BD08D800167097 /* SortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F7CB1527BD08D800167097 /* SortViewController.swift */; };
@@ -31,6 +32,7 @@
 		580DF2F727BE8C1400C1CBF4 /* SortArrayDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortArrayDataProvider.swift; sourceTree = "<group>"; };
 		5844BD3127BF8F28001788DA /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		5844BD3327BF8F61001788DA /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		58F13AC027C3A2CE001D068E /* SortViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortViewModel.swift; sourceTree = "<group>"; };
 		58F7CB0E27BD08D800167097 /* JustFunMath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustFunMath.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F7CB1127BD08D800167097 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58F7CB1327BD08D800167097 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,10 +89,11 @@
 			children = (
 				58F7CB1127BD08D800167097 /* AppDelegate.swift */,
 				58F7CB1327BD08D800167097 /* SceneDelegate.swift */,
+				580DF2F727BE8C1400C1CBF4 /* SortArrayDataProvider.swift */,
+				58F13AC027C3A2CE001D068E /* SortViewModel.swift */,
 				58F7CB1527BD08D800167097 /* SortViewController.swift */,
 				5844BD3327BF8F61001788DA /* MenuViewController.swift */,
 				5844BD3127BF8F28001788DA /* BoardViewController.swift */,
-				580DF2F727BE8C1400C1CBF4 /* SortArrayDataProvider.swift */,
 				580DF2F327BE3BDB00C1CBF4 /* RoundLabelView.swift */,
 				580DF2F527BE3BF200C1CBF4 /* RoundLabelView.xib */,
 				580DF2F027BE395900C1CBF4 /* LazyNibLoader.swift */,
@@ -181,6 +184,7 @@
 				58F7CB1627BD08D800167097 /* SortViewController.swift in Sources */,
 				58F7CB1227BD08D800167097 /* AppDelegate.swift in Sources */,
 				580DF2F127BE395900C1CBF4 /* LazyNibLoader.swift in Sources */,
+				58F13AC127C3A2CF001D068E /* SortViewModel.swift in Sources */,
 				58F7CB1427BD08D800167097 /* SceneDelegate.swift in Sources */,
 				580DF2F827BE8C1400C1CBF4 /* SortArrayDataProvider.swift in Sources */,
 				580DF2F427BE3BDB00C1CBF4 /* RoundLabelView.swift in Sources */,

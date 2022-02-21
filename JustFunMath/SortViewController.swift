@@ -15,8 +15,7 @@ class SortViewController: BoardViewController {
     @IBOutlet weak var rightWrongLabel: UILabel!
     @IBOutlet weak var outputStack: UIStackView!
     
-    var sortAscending = false
-    var unsortedArray: [Int] = []
+    var viewModel: SortViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,14 +29,17 @@ class SortViewController: BoardViewController {
     }
     
     func configureBoard() {
-        self.unsortedArray = SortArrayDataProvider(level: 1).unsortedArray()
-        self.sortAscending = Bool.random()
-        
         self.sortCompleted = false
         
-        self.configure(views: inputStack.arrangedSubviews, with: unsortedArray.map { "\($0)" })
-        self.configure(views: outputStack.arrangedSubviews, with: Array(repeating: "", count: unsortedArray.count))
-        self.titleLabel.text = "Ordoneaza \(self.sortAscending ? "CRESCATOR" : "DESCRESCATOR") sirul de numere"
+        self.configure(views: inputStack.arrangedSubviews, with: self.viewModel.unsortedArray.map { "\($0)" })
+        self.configure(views: outputStack.arrangedSubviews, with: Array(repeating: "", count: self.viewModel.unsortedArray.count))
+        self.titleLabel.text = self.viewModel.title
+        
+        for subview in outputStack.arrangedSubviews {
+            let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap(_:)))
+            doubleTapGesture.numberOfTapsRequired = 2
+            subview.addGestureRecognizer(doubleTapGesture)
+        }
     }
     
     func configure(views: [UIView], with strings: [String]) {
@@ -57,6 +59,28 @@ class SortViewController: BoardViewController {
         didSet {
             self.doneButton.isEnabled = sortCompleted
         }
+    }
+    
+    @IBAction func handleDoubleTap(_ recognizer: UITapGestureRecognizer) {
+        guard recognizer.state == .recognized, let movingLabel = (recognizer.view as? RoundLabelView)?.label else { return }
+        
+        // search for open spot in input stack
+        let openSpot = inputStack.arrangedSubviews.first { (($0 as? RoundLabelView)?.label.text ?? "")?.isEmpty ?? false }
+        guard let openSpot = (openSpot as? RoundLabelView)?.label else { return }
+        
+        // move view to open spot
+        UIView.animate(withDuration: 0.2) {
+            let frame = openSpot.convert(openSpot.bounds, to: self.canvas)
+            let targetFrame = movingLabel.convert(movingLabel.bounds, to: self.canvas)
+            
+            let translation = CGAffineTransform(translationX: frame.midX - targetFrame.midX, y: frame.midY - targetFrame.midY)
+            movingLabel.center = movingLabel.center.applying(translation)
+
+        } completion: { _ in
+            openSpot.text = movingLabel.text
+            movingLabel.text = ""
+        }
+
     }
 
     @IBAction func handlePan(_ recognizer: UIPanGestureRecognizer) {
@@ -102,26 +126,31 @@ class SortViewController: BoardViewController {
             break;
         }
     }
+    
+    
+    func animate(isCorrect: Bool, onCorrectCompletion: @escaping ()->()) {
+        self.rightWrongLabel.text = self.viewModel.rightWrongTextLabel(isCorrect: isCorrect)
+        self.rightWrongLabel.textColor = self.viewModel.rightWrongTextLabelColor(isCorrect: isCorrect)
+        self.rightWrongLabel.isHidden = false
+        
+        UIView.animate(withDuration: 1.5) {
+            self.rightWrongLabel.transform = CGAffineTransform(scaleX: 5.0, y: 5.0)
+        } completion: { _ in
+            self.rightWrongLabel.transform = CGAffineTransform.identity
+            self.rightWrongLabel.isHidden = true
+            if isCorrect {
+                onCorrectCompletion()
+            }
+        }
+    }
+    
     @IBAction func doneButtonClicked(_ sender: Any) {
         guard let subviews = self.outputStack.arrangedSubviews as? [RoundLabelView] else { return }
         
-        let sortedArray = self.sortAscending ? self.unsortedArray.sorted() : self.unsortedArray.sorted().reversed()
-        
-        if sortedArray == self.extractedSolution(array: subviews) {
-            print("Corect")
-            self.rightWrongLabel.isHidden = false
-            
-            UIView.animate(withDuration: 5.0) {
-                self.rightWrongLabel.transform.scaledBy(x: 0.5, y: 0.5)
-            } completion: { _ in
-                self.rightWrongLabel.isHidden = true
-                
-                UIView.animate(withDuration: 0.5, delay: 1.0) {
-                    self.configureBoard()
-                }
+        self.animate(isCorrect: self.viewModel.isSorted(output: self.extractedSolution(array: subviews))) {
+            UIView.animate(withDuration: 0.5, delay: 1.0) {
+                self.configureBoard()
             }
-        } else {
-            print("Gresit")
         }
     }
     
