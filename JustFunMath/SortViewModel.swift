@@ -12,13 +12,14 @@ class SortViewModel {
     var unsortedArray: [Int] = []
     var sortAscending = false
     
-    var dificultyLevel = 0
+    var dificultyLevel = ExerciseDificulty.class0
     
-    static func generate(for dificultyLevel: Int = 0) -> SortViewModel {
+    static func generate(for dificultyLevel: ExerciseDificulty = .class0) -> SortViewModel {
         let vm = SortViewModel()
         vm.dificultyLevel = dificultyLevel
         
-        vm.unsortedArray = SortArrayDataProvider(level: vm.dificultyLevel).unsortedArray()
+        let ind = ExerciseDificulty.allCases.firstIndex { $0 == dificultyLevel } ?? 0
+        vm.unsortedArray = SortArrayDataProvider(level: ind).unsortedArray()
         vm.sortAscending = Bool.random()
         
         return vm

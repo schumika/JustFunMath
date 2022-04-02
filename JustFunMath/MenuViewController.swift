@@ -7,9 +7,20 @@
 
 import UIKit
 
+protocol MenuViewControllerProtocol: NSObjectProtocol {
+    func menuViewControllerDidSelectProceed(withSelectedOption option: Int)
+}
+
 class MenuViewController: BoardViewController {
     
-    var dificulties = ["Clasa 0", "Clasa I"]
+    var options: [String] = [] {
+        didSet {
+            self.tableView?.reloadData()
+        }
+    }
+    
+    weak var delegate: MenuViewControllerProtocol?
+    var selectedOption = 0
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -23,22 +34,14 @@ class MenuViewController: BoardViewController {
         super.viewDidLoad()
     }
     
-    var selectedDifficulty = 0
-    
     @IBAction func proceedClicked(_ sender: Any) {
-        
-        guard let nextViewController =  UIStoryboard(name: "Main", bundle:nil).instantiateViewController(withIdentifier: "SortViewController") as? SortViewController else { return }
-        
-        nextViewController.modalPresentationStyle = .fullScreen
-        nextViewController.viewModel = SortViewModel.generate(for: self.selectedDifficulty)
-        
-        self.present(nextViewController, animated:true, completion:nil)
+        self.delegate?.menuViewControllerDidSelectProceed(withSelectedOption: self.selectedOption)
     }
 }
 
 extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return self.options.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,7 +56,7 @@ extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
         newCell.textLabel?.font = UIFont(name: "Chalkduster", size: 40)
         
         newCell.textLabel?.textAlignment = .center
-        newCell.textLabel?.text =  self.dificulties[indexPath.row]
+        newCell.textLabel?.text =  self.options[indexPath.row]
         newCell.selectionStyle = .none
         
         self.configure(cell: newCell, at: indexPath)
@@ -62,14 +65,14 @@ extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func configure(cell: UITableViewCell, at indexPath: IndexPath) {
-        let isSelected = self.selectedDifficulty == indexPath.row
+        let isSelected = self.selectedOption == indexPath.row
         
         cell.textLabel?.textColor = isSelected ? .yellow : .white
         cell.textLabel?.backgroundColor = isSelected ? UIColor(white: 0.5, alpha: 0.5) : .clear
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedDifficulty = indexPath.row
+        self.selectedOption = indexPath.row
         tableView.reloadData()
     }
     

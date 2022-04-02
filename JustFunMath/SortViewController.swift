@@ -7,10 +7,8 @@
 
 import UIKit
 
-class SortViewController: BoardViewController {
+class SortViewController: ExerciseViewController {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var inputStack: UIStackView!
     @IBOutlet weak var rightWrongLabel: UILabel!
     @IBOutlet weak var outputStack: UIStackView!
@@ -50,6 +48,7 @@ class SortViewController: BoardViewController {
             (numberView as? RoundLabelView)?.configure(with: "\(strings[ind])", panGestureRecognizer: panGestureRecognizer)
         }
     }
+    
     
     var panTrackingPoint = CGPoint.zero
     var panStartingPoint = CGPoint.zero

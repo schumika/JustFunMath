@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WyR-D4-wCS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WyR-D4-wCS">
     <device id="ipad10_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +11,7 @@
         <!--Menu View Controller-->
         <scene sceneID="L8J-PW-vvL">
             <objects>
-                <viewController id="WyR-D4-wCS" customClass="MenuViewController" customModule="JustFunMath" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuViewController" id="WyR-D4-wCS" customClass="MenuViewController" customModule="JustFunMath" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LEM-2X-MHT">
                         <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,14 +26,14 @@
                                 <rect key="frame" x="170" y="33" width="864" height="754"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gHe-si-cVi">
-                                        <rect key="frame" x="643" y="682" width="171" height="57"/>
+                                        <rect key="frame" x="624" y="682" width="190" height="57"/>
                                         <color key="backgroundColor" red="0.24705882370000001" green="0.38823530080000002" blue="0.54509806630000002" alpha="0.81587219239999997" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="yha-KL-faH"/>
                                         </constraints>
                                         <color key="tintColor" systemColor="systemYellowColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="INCEPE">
+                                        <buttonConfiguration key="configuration" style="plain" title="INAINTE">
                                             <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="34"/>
                                         </buttonConfiguration>
                                         <userDefinedRuntimeAttributes>
@@ -42,7 +42,6 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="doneButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gZu-73-OPo"/>
                                             <action selector="proceedClicked:" destination="WyR-D4-wCS" eventType="touchUpInside" id="xsb-ps-PEo"/>
                                         </connections>
                                     </button>
@@ -304,7 +303,33 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v3a-vO-6zA" userLabel="LeftSeparator">
                                 <rect key="frame" x="33" y="32" width="163" height="755"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tC4-Ar-No1">
+                                        <rect key="frame" x="8.5" y="23" width="164.5" height="60"/>
+                                        <color key="backgroundColor" red="0.24705882370000001" green="0.38823530080000002" blue="0.54509806630000002" alpha="0.81587219239999997" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="IO1-oO-6En"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="135" id="roi-8p-EkZ"/>
+                                        </constraints>
+                                        <color key="tintColor" systemColor="systemYellowColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="SETARI">
+                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="34"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="9"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="settingsButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nPg-8A-2qk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="tC4-Ar-No1" firstAttribute="top" secondItem="v3a-vO-6zA" secondAttribute="top" constant="23" id="9XS-Tj-xVK"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mxq-Zl-6Dj" userLabel="RightSeparator">
                                 <rect key="frame" x="988" y="33" width="159" height="754"/>
@@ -344,6 +369,7 @@
                             <constraint firstItem="iAU-k4-c8W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="0VL-8S-4T7"/>
                             <constraint firstAttribute="bottom" secondItem="OBc-wf-Ehr" secondAttribute="bottom" id="8aR-Mu-z6D"/>
                             <constraint firstItem="mxq-Zl-6Dj" firstAttribute="top" secondItem="iAU-k4-c8W" secondAttribute="top" constant="13" id="9AZ-Gi-bB6"/>
+                            <constraint firstItem="iAU-k4-c8W" firstAttribute="leading" secondItem="tC4-Ar-No1" secondAttribute="trailing" constant="-186" id="AoM-pM-DDz"/>
                             <constraint firstItem="8HV-Q3-EZL" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.25" id="Bw7-OC-cMi"/>
                             <constraint firstItem="OBc-wf-Ehr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Cs1-17-q85"/>
                             <constraint firstItem="mxq-Zl-6Dj" firstAttribute="trailing" secondItem="iAU-k4-c8W" secondAttribute="trailing" constant="-13" id="HSo-JY-qw5"/>
@@ -375,7 +401,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="503" y="75"/>
+            <point key="canvasLocation" x="502.88135593220341" y="74.634146341463406"/>
         </scene>
     </scenes>
     <resources>
