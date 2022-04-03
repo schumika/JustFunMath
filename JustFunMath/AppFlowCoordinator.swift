@@ -8,7 +8,7 @@
 import UIKit
 
 enum AppScreen {
-    case dificulties(MenuViewController) , exerciseTypes(MenuViewController), sorting(SortViewController), computing(UIViewController), none
+    case dificulties(MenuViewController) , exerciseTypes(MenuViewController), sorting(SortViewController), computation(ComputationViewController), none
     
     var viewController: UIViewController? {
         switch self {
@@ -16,7 +16,7 @@ enum AppScreen {
         case .dificulties(let vc): return vc
         case .exerciseTypes(let vc): return vc
         case .sorting(let vc): return vc
-        case .computing(let vc): return vc
+        case .computation(let vc): return vc
         }
     }
 }
@@ -32,7 +32,7 @@ enum ExerciseDificulty: String, CaseIterable {
 
 enum ExerciseType: String, CaseIterable {
     case sorting = "Sortare"
-//    case computing = "Operatii"
+    case computing = "Operatii"
     
     static var allOptions: [String] {
         Self.allCases.map { $0.rawValue }
@@ -44,6 +44,35 @@ class ExerciseSettings {
     var type: ExerciseType = .sorting
 }
 
+class Computation {
+    var digit1: Int = 0
+    var digit2: Int = 0
+    var op: (Int, Int)->(Int) = {_, _ in 0}
+    var operatorDescription: String = "+"
+    
+    static func addition(t1: Int, t2: Int) -> Computation {
+        let comp = Computation()
+        comp.digit1 = t1
+        comp.digit2 = t2
+        comp.op = { t1, t2 in return t1 + t2}
+        comp.operatorDescription = "+"
+        return comp
+    }
+    
+    static func substraction(t1: Int, t2: Int) -> Computation {
+        let comp = Computation()
+        comp.digit1 = t1
+        comp.digit2 = t2
+        comp.op = { t1, t2 in return t1 - t2}
+        comp.operatorDescription = "-"
+        return comp
+    }
+    
+    var correctResult: Int {
+        return self.op(self.digit1, self.digit2)
+    }
+}
+
 class AppFlowCoordinator: NSObject {
     
     var currentScreen: AppScreen = .none
@@ -51,8 +80,12 @@ class AppFlowCoordinator: NSObject {
     
     func getInitialScreen() -> UIViewController {
         //let vc = self.getMenuScreen(for: .dificulties(self.getMenuViewController()))
-        let vc = self.getSortScreen()
-        self.currentScreen = .sorting(vc)//.dificulties(vc)
+//        let vc = self.getSortScreen()
+//        self.currentScreen = .sorting(vc)//.dificulties(vc)
+        
+        let vc = self.getComputationViewController()
+        self.currentScreen = .computation(vc)//.dificulties(vc)
+        
         return vc
     }
     
@@ -84,6 +117,12 @@ class AppFlowCoordinator: NSObject {
         return sortViewController
     }
     
+    func getComputationViewController() -> ComputationViewController {
+        let vc = ComputationViewController.getFromMainStoryboard() ?? ComputationViewController()
+        vc.delegate = self
+        return vc
+    }
+    
     func showMenuScreen() {
         let vc = self.getMenuScreen(for: .exerciseTypes(self.getMenuViewController()))
         vc.modalPresentationStyle = .fullScreen
@@ -98,6 +137,14 @@ class AppFlowCoordinator: NSObject {
         sortViewController.modalPresentationStyle = .fullScreen
         self.currentScreen.viewController?.present(sortViewController, animated:true, completion:nil)
         self.currentScreen = .sorting(sortViewController)
+    }
+    
+    func showComputationsScreen() {
+        let vc = self.getComputationViewController()
+        
+        vc.modalPresentationStyle = .fullScreen
+        self.currentScreen.viewController?.present(vc, animated:true, completion:nil)
+        self.currentScreen = .computation(vc)
     }
     
     func show(screen: AppScreen) {
@@ -119,6 +166,8 @@ extension AppFlowCoordinator: MenuViewControllerProtocol {
             self.exerciseSettings.type = ExerciseType.allCases[option]
             if case .sorting = self.exerciseSettings.type {
                 self.showSortScreen()
+            } else if case .computing = self.exerciseSettings.type {
+                self.showComputationsScreen()
             }
         }
     }

@@ -29,13 +29,6 @@ class SortViewModel {
         "Ordoneaza \(self.sortAscending ? "CRESCATOR" : "DESCRESCATOR") sirul de numere"
     }
     
-    func rightWrongTextLabel(isCorrect: Bool) -> String {
-        isCorrect ? "CORECT" : "GRESIT"
-    }
-    func rightWrongTextLabelColor (isCorrect: Bool) -> UIColor {
-        isCorrect ? .green : .red
-    }
-    
     var sortedArray: [Int] {
         self.sortAscending ? self.unsortedArray.sorted() : self.unsortedArray.sorted().reversed()
     }

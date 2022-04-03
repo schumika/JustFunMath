@@ -14,6 +14,8 @@
 		5844BD3227BF8F28001788DA /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5844BD3127BF8F28001788DA /* BoardViewController.swift */; };
 		5844BD3427BF8F61001788DA /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5844BD3327BF8F61001788DA /* MenuViewController.swift */; };
 		589535F727F8C2D90066669E /* ComputationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589535F627F8C2D90066669E /* ComputationViewController.swift */; };
+		589535F927F8D6060066669E /* ComputationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589535F827F8D6060066669E /* ComputationView.swift */; };
+		589535FB27F8D61A0066669E /* ComputationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 589535FA27F8D61A0066669E /* ComputationView.xib */; };
 		58F13AC127C3A2CF001D068E /* SortViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F13AC027C3A2CE001D068E /* SortViewModel.swift */; };
 		58F13ACC27C3E42A001D068E /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F13ACB27C3E42A001D068E /* AppFlowCoordinator.swift */; };
 		58F7CB1227BD08D800167097 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F7CB1127BD08D800167097 /* AppDelegate.swift */; };
@@ -35,6 +37,8 @@
 		5844BD3127BF8F28001788DA /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		5844BD3327BF8F61001788DA /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		589535F627F8C2D90066669E /* ComputationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputationViewController.swift; sourceTree = "<group>"; };
+		589535F827F8D6060066669E /* ComputationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputationView.swift; sourceTree = "<group>"; };
+		589535FA27F8D61A0066669E /* ComputationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComputationView.xib; sourceTree = "<group>"; };
 		58F13AC027C3A2CE001D068E /* SortViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortViewModel.swift; sourceTree = "<group>"; };
 		58F13ACB27C3E42A001D068E /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
 		58F7CB0E27BD08D800167097 /* JustFunMath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustFunMath.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,12 +98,14 @@
 				58F7CB1127BD08D800167097 /* AppDelegate.swift */,
 				58F7CB1327BD08D800167097 /* SceneDelegate.swift */,
 				58F13ACB27C3E42A001D068E /* AppFlowCoordinator.swift */,
-				580DF2F727BE8C1400C1CBF4 /* SortArrayDataProvider.swift */,
-				58F13AC027C3A2CE001D068E /* SortViewModel.swift */,
+				5844BD3127BF8F28001788DA /* BoardViewController.swift */,
+				5844BD3327BF8F61001788DA /* MenuViewController.swift */,
 				58F7CB1527BD08D800167097 /* SortViewController.swift */,
 				589535F627F8C2D90066669E /* ComputationViewController.swift */,
-				5844BD3327BF8F61001788DA /* MenuViewController.swift */,
-				5844BD3127BF8F28001788DA /* BoardViewController.swift */,
+				580DF2F727BE8C1400C1CBF4 /* SortArrayDataProvider.swift */,
+				58F13AC027C3A2CE001D068E /* SortViewModel.swift */,
+				589535F827F8D6060066669E /* ComputationView.swift */,
+				589535FA27F8D61A0066669E /* ComputationView.xib */,
 				580DF2F327BE3BDB00C1CBF4 /* RoundLabelView.swift */,
 				580DF2F527BE3BF200C1CBF4 /* RoundLabelView.xib */,
 				580DF2F027BE395900C1CBF4 /* LazyNibLoader.swift */,
@@ -171,6 +177,7 @@
 			files = (
 				58F7CB2627BD09CE00167097 /* blackboard.jpg in Resources */,
 				58F7CB1E27BD08DA00167097 /* LaunchScreen.storyboard in Resources */,
+				589535FB27F8D61A0066669E /* ComputationView.xib in Resources */,
 				58F7CB1B27BD08DA00167097 /* Assets.xcassets in Resources */,
 				58F7CB2827BD0B6800167097 /* brickWall.jpg in Resources */,
 				58F7CB1927BD08D800167097 /* Main.storyboard in Resources */,
@@ -196,6 +203,7 @@
 				58F7CB1427BD08D800167097 /* SceneDelegate.swift in Sources */,
 				580DF2F827BE8C1400C1CBF4 /* SortArrayDataProvider.swift in Sources */,
 				580DF2F427BE3BDB00C1CBF4 /* RoundLabelView.swift in Sources */,
+				589535F927F8D6060066669E /* ComputationView.swift in Sources */,
 				5844BD3427BF8F61001788DA /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

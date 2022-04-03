@@ -10,7 +10,6 @@ import UIKit
 class SortViewController: ExerciseViewController {
     
     @IBOutlet weak var inputStack: UIStackView!
-    @IBOutlet weak var rightWrongLabel: UILabel!
     @IBOutlet weak var outputStack: UIStackView!
     
     var viewModel: SortViewModel!
@@ -126,24 +125,7 @@ class SortViewController: ExerciseViewController {
         }
     }
     
-    
-    func animate(isCorrect: Bool, onCorrectCompletion: @escaping ()->()) {
-        self.rightWrongLabel.text = self.viewModel.rightWrongTextLabel(isCorrect: isCorrect)
-        self.rightWrongLabel.textColor = self.viewModel.rightWrongTextLabelColor(isCorrect: isCorrect)
-        self.rightWrongLabel.isHidden = false
-        
-        UIView.animate(withDuration: 1.5) {
-            self.rightWrongLabel.transform = CGAffineTransform(scaleX: 5.0, y: 5.0)
-        } completion: { _ in
-            self.rightWrongLabel.transform = CGAffineTransform.identity
-            self.rightWrongLabel.isHidden = true
-            if isCorrect {
-                onCorrectCompletion()
-            }
-        }
-    }
-    
-    @IBAction func doneButtonClicked(_ sender: Any) {
+    override func doneButtonClicked(_ sender: Any) {
         guard let subviews = self.outputStack.arrangedSubviews as? [RoundLabelView] else { return }
         
         self.animate(isCorrect: self.viewModel.isSorted(output: self.extractedSolution(array: subviews))) {
