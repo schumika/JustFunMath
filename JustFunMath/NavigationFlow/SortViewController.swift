@@ -17,12 +17,27 @@ class SortViewController: ExerciseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        self.onMovingEnded = {
+            let subviews = self.outputStack.arrangedSubviews.compactMap({ $0 as? RoundLabelView })
+            self.sortCompleted = self.isFull(array: subviews)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.configureBoard()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        var allRoundedLabels = (self.inputStack.arrangedSubviews.compactMap({ $0 as? RoundLabelView }))
+        allRoundedLabels.append(contentsOf: self.outputStack.arrangedSubviews.compactMap({ $0 as? RoundLabelView }))
+        
+        self.sourceViews = allRoundedLabels
+        self.destinationViews = allRoundedLabels
     }
     
     func configureBoard() {
@@ -45,13 +60,10 @@ class SortViewController: ExerciseViewController {
         for (ind, numberView) in views.enumerated() {
             let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
             (numberView as? RoundLabelView)?.configure(with: "\(strings[ind])", panGestureRecognizer: panGestureRecognizer)
+            (numberView as? RoundLabelView)?.clearsAfterMoving = true
         }
     }
     
-    
-    var panTrackingPoint = CGPoint.zero
-    var panStartingPoint = CGPoint.zero
-    var selectedView: RoundLabelView?
     
     var sortCompleted = false {
         didSet {
@@ -79,50 +91,6 @@ class SortViewController: ExerciseViewController {
             movingLabel.text = ""
         }
 
-    }
-
-    @IBAction func handlePan(_ recognizer: UIPanGestureRecognizer) {
-        guard let movingLabel = recognizer.view as? TouchableLabel else { return }
-        
-        var allSubviews = (self.inputStack.arrangedSubviews)
-        allSubviews.append(contentsOf: self.outputStack.arrangedSubviews)
-        
-        switch recognizer.state {
-        case .began:
-            self.panTrackingPoint = movingLabel.center
-            self.panStartingPoint = movingLabel.center
-            
-            movingLabel.isMoving = true
-            self.selectedView = allSubviews.first { ($0 as? RoundLabelView)?.label.isMoving == true } as? RoundLabelView
-            
-        case .changed:
-            let translation = recognizer.translation(in: self.view)
-            let panOffsetTransform = CGAffineTransform( translationX: translation.x, y: translation.y)
-
-            movingLabel.center = self.panTrackingPoint.applying(panOffsetTransform)
-            
-        case .ended:
-            if let targetView = movingLabel.closestViewForSnapping(views: allSubviews, in: self.canvas),
-               (targetView.label.text?.isEmpty ?? false) {
-                targetView.set(text: movingLabel.text ?? "")
-                self.selectedView?.set(text: "")
-            }
-            
-            UIView.animate(withDuration: 0.2) {
-                movingLabel.center = self.panStartingPoint
-            }
-
-            movingLabel.isMoving = false
-            self.selectedView = nil
-            self.panTrackingPoint = CGPoint.zero
-            self.panStartingPoint = CGPoint.zero
-            
-            guard let subviews = self.outputStack.arrangedSubviews as? [RoundLabelView] else { return }
-            self.sortCompleted = self.isFull(array: subviews)
-            
-        default:
-            break;
-        }
     }
     
     override func doneButtonClicked(_ sender: Any) {

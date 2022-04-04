@@ -24,6 +24,12 @@ class ComputationViewController: ExerciseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        self.onMovingEnded = {
+            self.computationsCompleted = self.destinationViews.reduce(true, { partialResult, label in
+                return partialResult && !(label.label.text?.isEmpty ?? false)
+            })
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +37,13 @@ class ComputationViewController: ExerciseViewController {
 
         self.loadDigits()
         self.configureBoard()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.sourceViews = self.allDigitLabels
+        self.destinationViews = self.computationViews().compactMap { $0.resultLabel }
     }
     
 
@@ -72,54 +85,6 @@ class ComputationViewController: ExerciseViewController {
         }
         
         return computationViews
-    }
-
-    var panTrackingPoint = CGPoint.zero
-    var panStartingPoint = CGPoint.zero
-    var selectedView: RoundLabelView?
-
-    @IBAction func handlePan(_ recognizer: UIPanGestureRecognizer) {
-        guard let movingLabel = recognizer.view as? TouchableLabel else { return }
-
-        let allSubviews = self.allDigitLabels
-        let resultLabels = self.computationViews().compactMap { $0.resultLabel }
-
-        switch recognizer.state {
-        case .began:
-            self.panTrackingPoint = movingLabel.center
-            self.panStartingPoint = movingLabel.center
-
-            movingLabel.isMoving = true
-            self.selectedView = allSubviews.first { $0.label.isMoving == true }
-
-        case .changed:
-            let translation = recognizer.translation(in: self.view)
-            let panOffsetTransform = CGAffineTransform( translationX: translation.x, y: translation.y)
-
-            movingLabel.center = self.panTrackingPoint.applying(panOffsetTransform)
-
-        case .ended:
-            if let targetView = movingLabel.closestViewForSnapping(views: resultLabels, in: self.canvas),
-               (targetView.label.text?.isEmpty ?? false) {
-                targetView.set(text: movingLabel.text ?? "")
-            }
-
-            UIView.animate(withDuration: 0.01) {
-                movingLabel.center = self.panStartingPoint
-            }
-
-            movingLabel.isMoving = false
-            self.selectedView = nil
-            self.panTrackingPoint = CGPoint.zero
-            self.panStartingPoint = CGPoint.zero
-
-            self.computationsCompleted = resultLabels.reduce(true, { partialResult, label in
-                return partialResult && !(label.label.text?.isEmpty ?? false)
-            })
-
-        default:
-            break;
-        }
     }
 
     override func doneButtonClicked(_ sender: Any) {

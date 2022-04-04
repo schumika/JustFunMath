@@ -89,8 +89,8 @@
 			children = (
 				58F13ACB27C3E42A001D068E /* AppFlowCoordinator.swift */,
 				5844BD3127BF8F28001788DA /* BoardViewController.swift */,
-				5846E5A427FAE79500EF80AA /* ExerciseViewController.swift */,
 				5844BD3327BF8F61001788DA /* MenuViewController.swift */,
+				5846E5A427FAE79500EF80AA /* ExerciseViewController.swift */,
 				58F7CB1527BD08D800167097 /* SortViewController.swift */,
 				5846E59927FABB3F00EF80AA /* ComputationViewController.swift */,
 			);

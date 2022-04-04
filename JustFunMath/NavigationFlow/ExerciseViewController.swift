@@ -44,6 +44,58 @@ class ExerciseViewController: BoardViewController {
             }
         }
     }
+    
+    var panTrackingPoint = CGPoint.zero
+    var panStartingPoint = CGPoint.zero
+    var selectedView: RoundLabelView?
+    
+    var sourceViews: [RoundLabelView] = []
+    var destinationViews: [RoundLabelView] = []
+    
+    var onMovingEnded: ()->() = { }
+
+    @IBAction func handlePan(_ recognizer: UIPanGestureRecognizer) {
+        guard let movingLabel = recognizer.view as? TouchableLabel else { return }
+
+        switch recognizer.state {
+        case .began:
+            self.panTrackingPoint = movingLabel.center
+            self.panStartingPoint = movingLabel.center
+
+            movingLabel.isMoving = true
+            self.selectedView = self.sourceViews.first { $0.label.isMoving == true }
+
+        case .changed:
+            let translation = recognizer.translation(in: self.view)
+            let panOffsetTransform = CGAffineTransform( translationX: translation.x, y: translation.y)
+
+            movingLabel.center = self.panTrackingPoint.applying(panOffsetTransform)
+
+        case .ended:
+            if let targetView = movingLabel.closestViewForSnapping(views: self.destinationViews, in: self.canvas),
+               (targetView.label.text?.isEmpty ?? false) {
+                targetView.set(text: movingLabel.text ?? "")
+                if self.selectedView?.clearsAfterMoving ?? false {
+                    self.selectedView?.set(text: "")
+                }
+            }
+
+            UIView.animate(withDuration: 0.01) {
+                movingLabel.center = self.panStartingPoint
+            }
+
+            movingLabel.isMoving = false
+            self.selectedView = nil
+            self.panTrackingPoint = CGPoint.zero
+            self.panStartingPoint = CGPoint.zero
+            
+            self.onMovingEnded()
+
+        default:
+            break;
+        }
+    }
+
 }
 
 @objc protocol ExerciseViewControllerProtocol {

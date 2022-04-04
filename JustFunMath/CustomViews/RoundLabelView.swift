@@ -26,6 +26,8 @@ class RoundLabelView: LazyNibLoaderView {
         self.label.addGestureRecognizer(panGestureRecognizer)
         self.label.backgroundColor = UIColor(white: 1.0, alpha: 0.11)
     }
+    
+    var clearsAfterMoving: Bool = false
 }
 
 class TouchableLabel: UILabel {
