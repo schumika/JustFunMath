@@ -1,17 +1,11 @@
 //
-//  BoardViewController.swift
+//  ExerciseViewController.swift
 //  JustFunMath
 //
-//  Created by Calugar Anca Maria on 18.02.2022.
+//  Created by Calugar Anca Maria on 04.04.2022.
 //
 
 import UIKit
-
-
-
-class BoardViewController: UIViewController {
-    @IBOutlet weak var canvas: UIView!
-}
 
 class ExerciseViewController: BoardViewController {
     @IBOutlet weak var titleLabel: UILabel!
