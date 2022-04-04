@@ -25,6 +25,7 @@ class ExerciseViewController: BoardViewController {
     }
     
     @IBAction func doneButtonClicked(_ sender: Any) {
+        self.delegate?.didSelectDone()
     }
     
     func rightWrongTextLabel(isCorrect: Bool) -> String {
@@ -53,4 +54,5 @@ class ExerciseViewController: BoardViewController {
 
 @objc protocol ExerciseViewControllerProtocol {
     func didSelectSettings()
+    func didSelectDone()
 }

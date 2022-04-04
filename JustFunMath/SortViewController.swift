@@ -102,7 +102,7 @@ class SortViewController: ExerciseViewController {
             movingLabel.center = self.panTrackingPoint.applying(panOffsetTransform)
             
         case .ended:
-            if let targetView = movingLabel.closestViewForSnapping(views: allSubviews, in: self.canvas) as? RoundLabelView,
+            if let targetView = movingLabel.closestViewForSnapping(views: allSubviews, in: self.canvas),
                (targetView.label.text?.isEmpty ?? false) {
                 targetView.set(text: movingLabel.text ?? "")
                 self.selectedView?.set(text: "")
@@ -129,6 +129,8 @@ class SortViewController: ExerciseViewController {
         guard let subviews = self.outputStack.arrangedSubviews as? [RoundLabelView] else { return }
         
         self.animate(isCorrect: self.viewModel.isSorted(output: self.extractedSolution(array: subviews))) {
+            super.doneButtonClicked(sender)
+            
             UIView.animate(withDuration: 0.5, delay: 1.0) {
                 self.configureBoard()
             }
@@ -156,7 +158,7 @@ extension UIView {
         return true
     }
     
-    func closestViewForSnapping(views: [UIView], in contaier: UIView) -> UIView? {
-        return views.first { self.isCloseEnoughToSnap(to: $0, in: contaier)}
+    func closestViewForSnapping(views: [UIView], in contaier: UIView) -> RoundLabelView? {
+        return views.first { self.isCloseEnoughToSnap(to: $0, in: contaier)} as? RoundLabelView
     }
 }
