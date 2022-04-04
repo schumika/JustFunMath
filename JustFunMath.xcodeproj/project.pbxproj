@@ -13,7 +13,7 @@
 		580DF2F827BE8C1400C1CBF4 /* SortArrayDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580DF2F727BE8C1400C1CBF4 /* SortArrayDataProvider.swift */; };
 		5844BD3227BF8F28001788DA /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5844BD3127BF8F28001788DA /* BoardViewController.swift */; };
 		5844BD3427BF8F61001788DA /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5844BD3327BF8F61001788DA /* MenuViewController.swift */; };
-		5846E59A27FABB3F00EF80AA /* ComputationCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5846E59927FABB3F00EF80AA /* ComputationCollectionViewController.swift */; };
+		5846E59A27FABB3F00EF80AA /* ComputationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5846E59927FABB3F00EF80AA /* ComputationViewController.swift */; };
 		5846E59C27FABC6100EF80AA /* ComputationGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5846E59B27FABC6100EF80AA /* ComputationGenerator.swift */; };
 		5846E59E27FABD3300EF80AA /* ExerciseSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5846E59D27FABD3300EF80AA /* ExerciseSettings.swift */; };
 		5846E5A027FAD76400EF80AA /* ComputationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5846E59F27FAD76400EF80AA /* ComputationCollectionViewCell.swift */; };
@@ -39,7 +39,7 @@
 		580DF2F727BE8C1400C1CBF4 /* SortArrayDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortArrayDataProvider.swift; sourceTree = "<group>"; };
 		5844BD3127BF8F28001788DA /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		5844BD3327BF8F61001788DA /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		5846E59927FABB3F00EF80AA /* ComputationCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputationCollectionViewController.swift; sourceTree = "<group>"; };
+		5846E59927FABB3F00EF80AA /* ComputationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputationViewController.swift; sourceTree = "<group>"; };
 		5846E59B27FABC6100EF80AA /* ComputationGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputationGenerator.swift; sourceTree = "<group>"; };
 		5846E59D27FABD3300EF80AA /* ExerciseSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSettings.swift; sourceTree = "<group>"; };
 		5846E59F27FAD76400EF80AA /* ComputationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 				5844BD3127BF8F28001788DA /* BoardViewController.swift */,
 				5844BD3327BF8F61001788DA /* MenuViewController.swift */,
 				58F7CB1527BD08D800167097 /* SortViewController.swift */,
-				5846E59927FABB3F00EF80AA /* ComputationCollectionViewController.swift */,
+				5846E59927FABB3F00EF80AA /* ComputationViewController.swift */,
 				5846E59F27FAD76400EF80AA /* ComputationCollectionViewCell.swift */,
 				580DF2F727BE8C1400C1CBF4 /* SortArrayDataProvider.swift */,
 				58F13AC027C3A2CE001D068E /* SortViewModel.swift */,
@@ -204,7 +204,7 @@
 			files = (
 				5846E59C27FABC6100EF80AA /* ComputationGenerator.swift in Sources */,
 				5844BD3227BF8F28001788DA /* BoardViewController.swift in Sources */,
-				5846E59A27FABB3F00EF80AA /* ComputationCollectionViewController.swift in Sources */,
+				5846E59A27FABB3F00EF80AA /* ComputationViewController.swift in Sources */,
 				58F7CB1627BD08D800167097 /* SortViewController.swift in Sources */,
 				58F13ACC27C3E42A001D068E /* AppFlowCoordinator.swift in Sources */,
 				58F7CB1227BD08D800167097 /* AppDelegate.swift in Sources */,

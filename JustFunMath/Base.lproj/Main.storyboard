@@ -404,10 +404,10 @@
             </objects>
             <point key="canvasLocation" x="582" y="-315"/>
         </scene>
-        <!--Computation Collection View Controller-->
+        <!--Computation View Controller-->
         <scene sceneID="LnZ-oe-mC0">
             <objects>
-                <viewController storyboardIdentifier="ComputationCollectionViewController" id="LMM-3o-agM" customClass="ComputationCollectionViewController" customModule="JustFunMath" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ComputationViewController" id="LMM-3o-agM" customClass="ComputationViewController" customModule="JustFunMath" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D5G-y1-NBI">
                         <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -8,7 +8,7 @@
 import UIKit
 
 enum AppScreen {
-    case dificulties(MenuViewController) , exerciseTypes(MenuViewController), sorting(SortViewController), computationCollection(ComputationCollectionViewController), none
+    case dificulties(MenuViewController) , exerciseTypes(MenuViewController), sorting(SortViewController), computationCollection(ComputationViewController), none
     
     var viewController: UIViewController? {
         switch self {
@@ -31,7 +31,7 @@ class AppFlowCoordinator: NSObject {
 //        let vc = self.getSortScreen()
 //        self.currentScreen = .sorting(vc)//.dificulties(vc)
         
-        let vc = self.getComputationCollectionViewController()
+        let vc = self.getComputationViewController()
         self.currentScreen = .computationCollection(vc)//.dificulties(vc)
         
         return vc
@@ -65,8 +65,8 @@ class AppFlowCoordinator: NSObject {
         return sortViewController
     }
     
-    func getComputationCollectionViewController() -> ComputationCollectionViewController {
-        let vc = ComputationCollectionViewController.getFromMainStoryboard() ?? ComputationCollectionViewController()
+    func getComputationViewController() -> ComputationViewController {
+        let vc = ComputationViewController.getFromMainStoryboard() ?? ComputationViewController()
         vc.delegate = self
         return vc
     }
@@ -88,7 +88,7 @@ class AppFlowCoordinator: NSObject {
     }
     
     func showComputationsScreen() {
-        let vc = self.getComputationCollectionViewController()
+        let vc = self.getComputationViewController()
         
         vc.modalPresentationStyle = .fullScreen
         self.currentScreen.viewController?.present(vc, animated:true, completion:nil)

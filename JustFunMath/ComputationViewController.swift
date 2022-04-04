@@ -1,5 +1,5 @@
 //
-//  ComputationCollectionViewController.swift
+//  ComputationViewController.swift
 //  JustFunMath
 //
 //  Created by Calugar Anca Maria on 02.04.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ComputationCollectionViewController: ExerciseViewController {
+class ComputationViewController: ExerciseViewController {
     @IBOutlet weak var digitsStack: UIStackView!
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
@@ -136,7 +136,7 @@ class ComputationCollectionViewController: ExerciseViewController {
     }
 }
 
-extension ComputationCollectionViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ComputationViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         self.computations.count
     }
