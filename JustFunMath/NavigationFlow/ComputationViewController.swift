@@ -7,7 +7,25 @@
 
 import UIKit
 
-class ComputationViewController: ExerciseViewController {
+// TODO: inject ComputationsGenerator
+class ComputationsViewModel {
+    
+    var computations: [Computation] {
+        ComputationGenerator.generateComputations(settings: self.settings)
+    }
+    
+    private var settings: ExerciseSettings
+    
+    var isSingleDigit: Bool {
+        settings.dificulty == .class0
+    }
+
+    init(settings: ExerciseSettings) {
+        self.settings = settings
+    }
+}
+
+class ComputationViewController: ExerciseViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var digitsStack: UIStackView!
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
@@ -17,17 +35,25 @@ class ComputationViewController: ExerciseViewController {
             self.collectionView.dataSource = self
             self.collectionView.delegate = self
             self.collectionView.collectionViewLayout = layout
-            self.collectionView.register(ComputationCollectionViewCell.self, forCellWithReuseIdentifier: "ComputationCell")
+            
+            self.collectionView.register(ComputationCollectionViewCell<SingleDigitComputationView>.self, forCellWithReuseIdentifier: "SingleDigitComputationCell")
+            self.collectionView.register(ComputationCollectionViewCell<DoubleDigitComputationView>.self, forCellWithReuseIdentifier: "DoubleDigitComputationCell")
         }
     }
+    
+    var viewModel: ComputationsViewModel = .init(settings: .init())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         self.onMovingEnded = {
-            self.computationsCompleted = self.destinationViews.reduce(true, { partialResult, label in
-                return partialResult && !(label.label.text?.isEmpty ?? false)
+            self.computationsCompleted = self.computationViews().map { $0.resultLabels }.reduce(true, { partialResult, resultLabels in
+                if resultLabels.count == 1 {
+                    return partialResult && !(resultLabels[0].label.text?.isEmpty ?? false)
+                } else {
+                    return partialResult && !(resultLabels[1].label.text?.isEmpty ?? false)
+                }
             })
         }
     }
@@ -43,7 +69,7 @@ class ComputationViewController: ExerciseViewController {
         super.viewDidAppear(animated)
         
         self.sourceViews = self.allDigitLabels
-        self.destinationViews = self.computationViews().compactMap { $0.resultLabel }
+        self.destinationViews = self.computationViews().flatMap { $0.resultLabels }
     }
     
 
@@ -58,7 +84,7 @@ class ComputationViewController: ExerciseViewController {
 
     func configureBoard() {
         self.computationsCompleted = false
-        self.computations = ComputationGenerator.generateComputations(count: 2)
+        self.computations = self.viewModel.computations
         self.collectionView.reloadData()
     }
     
@@ -78,10 +104,16 @@ class ComputationViewController: ExerciseViewController {
         }
     }
     
-    private func computationViews() -> [ComputationView] {
-        var computationViews: [ComputationView] = []
-        for cell in self.collectionView.visibleCells.compactMap({ $0 as? ComputationCollectionViewCell }) {
-            computationViews.append(cell.computationView)
+    private func computationViews() -> [ComputationViewProtocol] {
+        var computationViews: [ComputationViewProtocol] = []
+        if self.viewModel.isSingleDigit {
+            for cell in self.collectionView.visibleCells.compactMap({ $0 as? ComputationCollectionViewCell<SingleDigitComputationView> }) {
+                computationViews.append(cell.computationView)
+            }
+        } else {
+            for cell in self.collectionView.visibleCells.compactMap({ $0 as? ComputationCollectionViewCell<DoubleDigitComputationView> }) {
+                computationViews.append(cell.computationView)
+            }
         }
         
         return computationViews
@@ -99,22 +131,24 @@ class ComputationViewController: ExerciseViewController {
             self?.configureBoard()
         })
     }
-}
-
-extension ComputationViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         self.computations.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ComputationCell", for: indexPath) as! ComputationCollectionViewCell
-        collectionViewCell.configure(with: self.computations[indexPath.row])
-        
-        
-        return collectionViewCell
+        if self.viewModel.isSingleDigit {
+            let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "SingleDigitComputationCell", for: indexPath) as? ComputationCollectionViewCell<SingleDigitComputationView>
+            collectionViewCell?.configure(with: self.computations[indexPath.row])
+            return collectionViewCell ?? UICollectionViewCell()
+        } else {
+            let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DoubleDigitComputationCell", for: indexPath) as? ComputationCollectionViewCell<DoubleDigitComputationView>
+            collectionViewCell?.configure(with: self.computations[indexPath.row])
+            return collectionViewCell ?? UICollectionViewCell()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width / 2, height: 100.0)
+        return CGSize(width: collectionView.frame.size.width, height: 80.0)
     }
 }

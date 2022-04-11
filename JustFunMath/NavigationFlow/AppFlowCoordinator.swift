@@ -68,6 +68,7 @@ class AppFlowCoordinator: NSObject {
     func getComputationViewController() -> ComputationViewController {
         let vc = ComputationViewController.getFromMainStoryboard() ?? ComputationViewController()
         vc.delegate = self
+        vc.viewModel = .init(settings: self.exerciseSettings)
         return vc
     }
     

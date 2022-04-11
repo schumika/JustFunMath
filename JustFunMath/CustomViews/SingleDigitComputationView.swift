@@ -1,5 +1,5 @@
 //
-//  ComputationView.swift
+//  SingleDigitComputationView.swift
 //  JustFunMath
 //
 //  Created by Calugar Anca Maria on 02.04.2022.
@@ -7,7 +7,14 @@
 
 import UIKit
 
-class ComputationView: LazyNibLoaderView {
+protocol ComputationViewProtocol where Self: UIView {
+    var maxWith: CGFloat { get }
+    var resultLabels: [RoundLabelView] { get }
+    var isCorrect: Bool { get }
+    func configure(with computation: Computation)
+}
+
+class SingleDigitComputationView: LazyNibLoaderView, ComputationViewProtocol {
     
     @IBOutlet weak var term1Label: RoundLabelView!
     @IBOutlet weak var term2Label: RoundLabelView!
@@ -17,6 +24,11 @@ class ComputationView: LazyNibLoaderView {
     
     private var computation: Computation = .addition(t1: 1, t2: 1)
     
+    var maxWith: CGFloat = 0.5
+    var resultLabels: [RoundLabelView] {
+        [self.resultLabel]
+    }
+    
     func configure(with computation: Computation) {
         self.computation = computation
         
@@ -24,8 +36,6 @@ class ComputationView: LazyNibLoaderView {
         self.term2Label.set(text: "\(computation.digit2)")
         self.operandLabel.set(text: "\(computation.operatorDescription)")
         self.equalsLabel.set(text: "=")
-//        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
-//        self.res.configure(with: "", panGestureRecognizer: panGestureRecognizer)
         self.resultLabel.set(textColor: .yellow)
         self.resultLabel.set(text: "")
         
@@ -39,6 +49,6 @@ class ComputationView: LazyNibLoaderView {
         }
     
     var isCorrect: Bool {
-        return "\(self.computation.correctResult)" == self.resultLabel.label.text
+        return self.computation.correctResult == self.resultLabel.numberValue
     }
 }

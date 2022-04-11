@@ -127,6 +127,7 @@ extension UIView {
     }
     
     func closestViewForSnapping(views: [UIView], in contaier: UIView) -> RoundLabelView? {
-        return views.first { self.isCloseEnoughToSnap(to: $0, in: contaier)} as? RoundLabelView
+        let labels = views.compactMap { $0 as? RoundLabelView }
+        return labels.first { self.isCloseEnoughToSnap(to: $0, in: contaier) && ($0.label.text?.isEmpty ?? false )}
     }
 }

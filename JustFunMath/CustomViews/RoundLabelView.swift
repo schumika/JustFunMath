@@ -28,6 +28,10 @@ class RoundLabelView: LazyNibLoaderView {
     }
     
     var clearsAfterMoving: Bool = false
+    
+    var numberValue: Int {
+        return Int(self.label.text ?? "") ?? 0
+    }
 }
 
 class TouchableLabel: UILabel {

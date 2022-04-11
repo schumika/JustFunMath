@@ -7,8 +7,8 @@
 
 import UIKit
 
-class ComputationCollectionViewCell: UICollectionViewCell {
-    var computationView: ComputationView =  ComputationView()
+class ComputationCollectionViewCell<T: ComputationViewProtocol>: UICollectionViewCell {
+    var computationView: T =  T()
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -19,8 +19,8 @@ class ComputationCollectionViewCell: UICollectionViewCell {
         
         self.computationView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         self.computationView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        self.computationView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -15).isActive = true
-        self.computationView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 15).isActive = true
+        self.computationView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        self.computationView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: computationView.maxWith).isActive = true
     }
     
     func configure(with computation: Computation) {
