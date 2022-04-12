@@ -7,9 +7,16 @@
 
 import Foundation
 
-enum ExerciseDificulty: String, CaseIterable {
+enum ExerciseLevel: String, CaseIterable {
     case class0 = "Clasa 0"
     case class1 = "Clasa 1"
+    
+    var value: Int {
+        switch self {
+        case .class0 : return 0
+        case .class1: return 1
+        }
+    }
     
     static var allOptions: [String] {
         Self.allCases.map { $0.rawValue }
@@ -26,19 +33,19 @@ enum ExerciseType: String, CaseIterable {
 }
 
 struct ExerciseSettings {
-    var dificulty: ExerciseDificulty = .class0
+    var level: ExerciseLevel = .class0
     var type: ExerciseType = .sorting
     
-    var allDificulties: [ExerciseDificulty] {
-        ExerciseDificulty.allCases
+    var allLevels: [ExerciseLevel] {
+        ExerciseLevel.allCases
     }
     
     var allTypes: [ExerciseType] {
         ExerciseType.allCases
     }
     
-    mutating func update(with dificulty: ExerciseDificulty, type: ExerciseType) {
-        self.dificulty = dificulty
+    mutating func update(with level: ExerciseLevel, type: ExerciseType) {
+        self.level = level
         self.type = type
     }
 }

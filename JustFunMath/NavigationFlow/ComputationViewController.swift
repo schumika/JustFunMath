@@ -11,17 +11,17 @@ import UIKit
 class ComputationsViewModel {
     
     var computations: [Computation] {
-        ComputationGenerator.generateComputations(settings: self.settings)
+        ComputationGenerator.generateComputations(level: level)
     }
     
-    private var settings: ExerciseSettings
+    private var level: ExerciseLevel
     
     var isSingleDigit: Bool {
-        settings.dificulty == .class0
+        level == .class0
     }
 
-    init(settings: ExerciseSettings) {
-        self.settings = settings
+    init(level: ExerciseLevel) {
+        self.level = level
     }
 }
 
@@ -41,7 +41,7 @@ class ComputationViewController: ExerciseViewController, UICollectionViewDataSou
         }
     }
     
-    var viewModel: ComputationsViewModel = .init(settings: .init()) {
+    var viewModel: ComputationsViewModel = .init(level: .class0) {
         didSet {
             guard self.isViewLoaded && (self.view.window != nil) else { return }
             

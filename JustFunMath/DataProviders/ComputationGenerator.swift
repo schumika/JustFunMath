@@ -40,14 +40,14 @@ class Computation {
 // TODO: remove static functions!!!!
 class ComputationGenerator {
     
-    static func generateComputations(settings: ExerciseSettings, count: Int = 3) -> [Computation] {
-        return (0..<count).map { _ in Self.generateComputation(settings: settings) }
+    static func generateComputations(level: ExerciseLevel, count: Int = 3) -> [Computation] {
+        return (0..<count).map { _ in Self.generateComputation(level: level) }
     }
     
-    static func generateComputation(settings: ExerciseSettings) -> Computation {
+    static func generateComputation(level: ExerciseLevel) -> Computation {
         let opType = Int.random(in: 0...1)
         
-        if settings.dificulty == .class0 {
+        if level == .class0 {
             return opType == 0 ? Self.simpleAddition() : Self.simpleSubstraction()
         } else {
             return opType == 0 ? Self.addition() : Self.substraction()

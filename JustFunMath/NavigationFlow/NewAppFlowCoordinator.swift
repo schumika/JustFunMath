@@ -68,7 +68,7 @@ extension NewAppFlowCoordinator {
     func getComputationViewController() -> ComputationViewController {
         let vc = ComputationViewController.getFromMainStoryboard() ?? ComputationViewController()
         vc.delegate = self
-        vc.viewModel = .init(settings: self.exerciseSettings)
+        vc.viewModel = .init(level: self.exerciseSettings.level)
         return vc
     }
     
@@ -81,7 +81,7 @@ extension NewAppFlowCoordinator {
     
     func getSortScreen() -> SortViewController {
         let sortViewController = SortViewController.getFromMainStoryboard() ?? SortViewController()
-        sortViewController.viewModel = SortViewModel(settings: self.exerciseSettings)
+        sortViewController.viewModel = SortViewModel(level: self.exerciseSettings.level)
         sortViewController.delegate = self
         return sortViewController
     }
@@ -97,14 +97,14 @@ extension NewAppFlowCoordinator: ExerciseViewControllerProtocol {
 }
 
 extension NewAppFlowCoordinator: SettingsViewControllerProtocol {
-    func menuViewControllerDidSelectProceed(with dificulty: ExerciseDificulty, type: ExerciseType) {
+    func menuViewControllerDidSelectProceed(with level: ExerciseLevel, type: ExerciseType) {
         self.splitViewController.hide(.primary)
         
 //        let typeChanged = self.exerciseSettings.type != type
-        self.exerciseSettings.update(with: dificulty, type: type)
+        self.exerciseSettings.update(with: level, type: type)
         
-        self.computationViewController.viewModel = ComputationsViewModel.init(settings: self.exerciseSettings)
-        self.sortingViewController.viewModel = SortViewModel(settings: self.exerciseSettings)
+        self.computationViewController.viewModel = ComputationsViewModel(level: self.exerciseSettings.level)
+        self.sortingViewController.viewModel = SortViewModel(level: self.exerciseSettings.level)
         
         
 //        guard typeChanged else { return }

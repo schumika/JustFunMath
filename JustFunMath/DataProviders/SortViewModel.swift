@@ -12,20 +12,19 @@ class SortViewModel {
     var unsortedArray: [Int] {
         get {
             self.sortAscending = Bool.random()
-            
-            let ind = self.settings.allDificulties.firstIndex { $0 == self.settings.dificulty } ?? 0
-            let unsortedArray = SortArrayDataProvider(level: ind).unsortedArray()
+        
+            let unsortedArray = SortArrayDataProvider(level: self.level.value).unsortedArray()
             self.generatedArray = unsortedArray
             return unsortedArray
         }
     }
     var sortAscending = false
     
-    private var settings: ExerciseSettings
+    private var level: ExerciseLevel
     private var generatedArray: [Int] = []
 
-    init(settings: ExerciseSettings) {
-        self.settings = settings
+    init(level: ExerciseLevel) {
+        self.level = level
     }
     
     var title: String {

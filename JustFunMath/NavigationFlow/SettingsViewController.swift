@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SettingsViewControllerProtocol: NSObjectProtocol {
-    func menuViewControllerDidSelectProceed(with dificulty: ExerciseDificulty, type: ExerciseType)
+    func menuViewControllerDidSelectProceed(with level: ExerciseLevel, type: ExerciseType)
 }
 
 struct SettingsScreenViewModel {
@@ -17,9 +17,9 @@ struct SettingsScreenViewModel {
     
     init(settings: ExerciseSettings) {
         self.settings = settings
-        self.sections = [SettingsSectionViewModel(title: "Dificultate",
-                                                  options: settings.allDificulties.map { $0.rawValue },
-                                                  selectedOptionIndex: ExerciseDificulty.allCases.firstIndex(of: settings.dificulty) ?? 0),
+        self.sections = [SettingsSectionViewModel(title: "Nivel",
+                                                  options: settings.allLevels.map { $0.rawValue },
+                                                  selectedOptionIndex: ExerciseLevel.allCases.firstIndex(of: settings.level) ?? 0),
                          SettingsSectionViewModel(title: "Tip de exercitiu",
                                                   options: settings.allTypes.map { $0.rawValue },
                                                   selectedOptionIndex: ExerciseType.allCases.firstIndex(of: settings.type) ?? 0)]
@@ -58,13 +58,13 @@ class SettingsViewController: BoardViewController {
     }
     
     @IBAction func proceedClicked(_ sender: Any) {
-        let dificultySection = self.viewModel.sections[0]
-        let selectedDificulty = self.viewModel.settings.allDificulties[dificultySection.selectedOptionIndex]
+        let levelSection = self.viewModel.sections[0]
+        let selectedLevel = self.viewModel.settings.allLevels[levelSection.selectedOptionIndex]
         
         let typeSection = self.viewModel.sections[1]
         let selectedType = self.viewModel.settings.allTypes[typeSection.selectedOptionIndex]
         
-        self.delegate?.menuViewControllerDidSelectProceed(with: selectedDificulty, type: selectedType)
+        self.delegate?.menuViewControllerDidSelectProceed(with: selectedLevel, type: selectedType)
     }
 }
 
