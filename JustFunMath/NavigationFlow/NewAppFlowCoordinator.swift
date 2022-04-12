@@ -100,14 +100,14 @@ extension NewAppFlowCoordinator: SettingsViewControllerProtocol {
     func menuViewControllerDidSelectProceed(with dificulty: ExerciseDificulty, type: ExerciseType) {
         self.splitViewController.hide(.primary)
         
-        let typeChanged = self.exerciseSettings.type != type
+//        let typeChanged = self.exerciseSettings.type != type
         self.exerciseSettings.update(with: dificulty, type: type)
         
         self.computationViewController.viewModel = ComputationsViewModel.init(settings: self.exerciseSettings)
         self.sortingViewController.viewModel = SortViewModel(settings: self.exerciseSettings)
         
         
-        guard typeChanged else { return }
+//        guard typeChanged else { return }
         if case .sorting = type {
             self.showSortingDetailScreen()
         } else {
