@@ -20,7 +20,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
      */
 
     var window: UIWindow?
-    let coordinator = AppFlowCoordinator()
     let newCoordinator = NewAppFlowCoordinator()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {

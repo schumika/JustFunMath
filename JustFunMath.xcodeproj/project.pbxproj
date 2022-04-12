@@ -28,7 +28,6 @@
 		589535FB27F8D61A0066669E /* SingleDigitComputationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 589535FA27F8D61A0066669E /* SingleDigitComputationView.xib */; };
 		58B243DB280413F700F54B1D /* NewAppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B243DA280413F700F54B1D /* NewAppFlowCoordinator.swift */; };
 		58F13AC127C3A2CF001D068E /* SortViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F13AC027C3A2CE001D068E /* SortViewModel.swift */; };
-		58F13ACC27C3E42A001D068E /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F13ACB27C3E42A001D068E /* AppFlowCoordinator.swift */; };
 		58F7CB1227BD08D800167097 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F7CB1127BD08D800167097 /* AppDelegate.swift */; };
 		58F7CB1427BD08D800167097 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F7CB1327BD08D800167097 /* SceneDelegate.swift */; };
 		58F7CB1627BD08D800167097 /* SortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F7CB1527BD08D800167097 /* SortViewController.swift */; };
@@ -62,7 +61,6 @@
 		589535FA27F8D61A0066669E /* SingleDigitComputationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleDigitComputationView.xib; sourceTree = "<group>"; };
 		58B243DA280413F700F54B1D /* NewAppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAppFlowCoordinator.swift; sourceTree = "<group>"; };
 		58F13AC027C3A2CE001D068E /* SortViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortViewModel.swift; sourceTree = "<group>"; };
-		58F13ACB27C3E42A001D068E /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
 		58F7CB0E27BD08D800167097 /* JustFunMath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustFunMath.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F7CB1127BD08D800167097 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58F7CB1327BD08D800167097 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 		5846E5A127FAE70400EF80AA /* NavigationFlow */ = {
 			isa = PBXGroup;
 			children = (
-				58F13ACB27C3E42A001D068E /* AppFlowCoordinator.swift */,
 				58B243DA280413F700F54B1D /* NewAppFlowCoordinator.swift */,
 				5844BD3127BF8F28001788DA /* BoardViewController.swift */,
 				5844BD3327BF8F61001788DA /* MenuViewController.swift */,
@@ -259,7 +256,6 @@
 				581EC1D92805A04600EEA67F /* SettingsViewController.swift in Sources */,
 				5846E59A27FABB3F00EF80AA /* ComputationViewController.swift in Sources */,
 				58F7CB1627BD08D800167097 /* SortViewController.swift in Sources */,
-				58F13ACC27C3E42A001D068E /* AppFlowCoordinator.swift in Sources */,
 				58F7CB1227BD08D800167097 /* AppDelegate.swift in Sources */,
 				58179A1B27FC0F8C00AAFABD /* DoubleDigitComputationView.swift in Sources */,
 				580DF2F127BE395900C1CBF4 /* LazyNibLoader.swift in Sources */,

@@ -117,3 +117,9 @@ extension NewAppFlowCoordinator: SettingsViewControllerProtocol {
     }
 }
 
+extension UIViewController {
+    static func getFromMainStoryboard() -> Self? {
+        UIStoryboard(name: "Main", bundle:nil).instantiateViewController(withIdentifier: String(describing: Self.self)) as? Self
+    }
+}
+
