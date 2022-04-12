@@ -12,7 +12,14 @@ class SortViewController: ExerciseViewController {
     @IBOutlet weak var inputStack: UIStackView!
     @IBOutlet weak var outputStack: UIStackView!
     
-    var viewModel: SortViewModel!
+    var viewModel: SortViewModel! {
+        didSet {
+            guard self.isViewLoaded && (self.view.window != nil) else { return }
+            
+            self.configureBoard()
+            self.getSourceAndDestinationViews()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +39,10 @@ class SortViewController: ExerciseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        self.getSourceAndDestinationViews()
+    }
+    
+    func getSourceAndDestinationViews() {
         var allRoundedLabels = (self.inputStack.arrangedSubviews.compactMap({ $0 as? RoundLabelView }))
         allRoundedLabels.append(contentsOf: self.outputStack.arrangedSubviews.compactMap({ $0 as? RoundLabelView }))
         
@@ -43,8 +53,9 @@ class SortViewController: ExerciseViewController {
     func configureBoard() {
         self.sortCompleted = false
         
-        self.configure(views: inputStack.arrangedSubviews, with: self.viewModel.unsortedArray.map { "\($0)" })
-        self.configure(views: outputStack.arrangedSubviews, with: Array(repeating: "", count: self.viewModel.unsortedArray.count))
+        let unsortedArray = self.viewModel.unsortedArray
+        self.configure(views: inputStack.arrangedSubviews, with: unsortedArray.map { "\($0)" })
+        self.configure(views: outputStack.arrangedSubviews, with: Array(repeating: "", count: unsortedArray.count))
         self.titleLabel.text = self.viewModel.title
         
         for subview in outputStack.arrangedSubviews {
@@ -101,6 +112,7 @@ class SortViewController: ExerciseViewController {
             
             UIView.animate(withDuration: 0.5, delay: 1.0) {
                 self.configureBoard()
+                self.getSourceAndDestinationViews()
             }
         }
     }

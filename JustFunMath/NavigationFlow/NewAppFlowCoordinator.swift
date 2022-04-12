@@ -10,7 +10,8 @@ import UIKit
 class NewAppFlowCoordinator: NSObject, UISplitViewControllerDelegate {
     let splitViewController: UISplitViewController
     var computationViewController = ComputationViewController()
-    var menuViewController = MenuViewController()
+    var settingsViewController = SettingsViewController()
+    var sortingViewController = SortViewController()
     
     var exerciseSettings = ExerciseSettings()
     
@@ -20,29 +21,45 @@ class NewAppFlowCoordinator: NSObject, UISplitViewControllerDelegate {
         super.init()
         
         self.computationViewController = self.getComputationViewController()
-        self.menuViewController = self.getMenuViewController()
-        self.configureSplitViewController(detailScreen: self.computationViewController, masterScreen: self.menuViewController)
+        self.settingsViewController = self.getSettingsViewController()
+        self.sortingViewController = self.getSortScreen()
+        
+        var initialDetailViewController: ExerciseViewController
+        if case .sorting = self.exerciseSettings.type {
+            initialDetailViewController = self.sortingViewController
+        } else {
+            initialDetailViewController = self.computationViewController
+        }
+        
+        self.configureSplitViewController(detailScreen: initialDetailViewController, masterScreen: self.settingsViewController)
     }
     
-    func configureSplitViewController(detailScreen: ComputationViewController, masterScreen: MenuViewController) {
+    func configureSplitViewController(detailScreen: UIViewController, masterScreen: SettingsViewController) {
         self.splitViewController.delegate = self
         let master = UINavigationController(rootViewController: masterScreen)
         let detail = UINavigationController(rootViewController: detailScreen)
         self.splitViewController.viewControllers = [master, detail]
         self.splitViewController.preferredDisplayMode = .secondaryOnly
+        self.splitViewController.preferredSplitBehavior = .overlay
+        self.splitViewController.presentsWithGesture = false
+    }
+    
+    func showDetailScreen(_ vc: ExerciseViewController) {
+        let master = UINavigationController(rootViewController: self.settingsViewController)
+        let detail = UINavigationController(rootViewController: vc)
+        self.splitViewController.viewControllers = [master, detail]
+    }
+    
+    func showSortingDetailScreen() {
+        self.showDetailScreen(self.sortingViewController)
+    }
+    
+    func showComputingDetailScreen() {
+        self.showDetailScreen(self.computationViewController)
     }
     
 
     func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
-        
-//        if let nc = secondaryViewController as? UINavigationController {
-//            if let topVc = nc.topViewController {
-//                if let dc = topVc as? DetailVc {
-//                    let hasDetail = Thing.noThing !== dc.thing
-//                    return !hasDetail
-//                }
-//            }
-//        }
         return true
     }
 }
@@ -55,74 +72,48 @@ extension NewAppFlowCoordinator {
         return vc
     }
     
-    func getMenuViewController() -> MenuViewController {
-        let vc = MenuViewController.getFromMainStoryboard() ?? MenuViewController()
+    func getSettingsViewController() -> SettingsViewController {
+        let vc = SettingsViewController.getFromMainStoryboard() ?? SettingsViewController()
+        vc.viewModel = SettingsScreenViewModel(settings: self.exerciseSettings)
         vc.delegate = self
         return vc
+    }
+    
+    func getSortScreen() -> SortViewController {
+        let sortViewController = SortViewController.getFromMainStoryboard() ?? SortViewController()
+        sortViewController.viewModel = SortViewModel(settings: self.exerciseSettings)
+        sortViewController.delegate = self
+        return sortViewController
     }
     
 }
 
 extension NewAppFlowCoordinator: ExerciseViewControllerProtocol {
     func didSelectSettings() {
-//        let screen = AppScreen.dificulties(self.getMenuViewController())
-//        let vc = self.getMenuScreen(for: screen)
-//        vc.modalPresentationStyle = .fullScreen
-//
-//        self.currentScreen.viewController?.present(vc, animated:true, completion:nil)
-//        self.currentScreen = screen
+        self.splitViewController.show(.primary)
+    }
+    
+    func didSelectDone() {}
+}
+
+extension NewAppFlowCoordinator: SettingsViewControllerProtocol {
+    func menuViewControllerDidSelectProceed(with dificulty: ExerciseDificulty, type: ExerciseType) {
+        self.splitViewController.hide(.primary)
         
-        if self.splitViewController.isCollapsed {
-            self.splitViewController.show(.primary)
+        let typeChanged = self.exerciseSettings.type != type
+        self.exerciseSettings.update(with: dificulty, type: type)
+        
+        self.computationViewController.viewModel = ComputationsViewModel.init(settings: self.exerciseSettings)
+        self.sortingViewController.viewModel = SortViewModel(settings: self.exerciseSettings)
+        
+        
+        guard typeChanged else { return }
+        if case .sorting = type {
+            self.showSortingDetailScreen()
         } else {
-            self.splitViewController.hide(.primary)
+            self.showComputingDetailScreen()
         }
         
-    }
-    
-    func didSelectDone() {
-//        guard case .sorting(let vc) = self.currentScreen else { return }
-//        vc.viewModel = SortViewModel.generate(for: self.exerciseSettings.dificulty)
-    }
-}
-
-extension NewAppFlowCoordinator: MenuViewControllerProtocol {
-    func menuViewControllerDidSelectProceed(withSelectedOption option: Int) {
-//        if case .dificulties(_) = self.currentScreen {
-//            self.exerciseSettings.dificulty = ExerciseDificulty.allCases[option]
-//            self.showMenuScreen()
-//        } else if case .exerciseTypes(_) = self.currentScreen {
-//            self.exerciseSettings.type = ExerciseType.allCases[option]
-//            if case .sorting = self.exerciseSettings.type {
-//                self.showSortScreen()
-//            } else if case .computing = self.exerciseSettings.type {
-//                self.showComputationsScreen()
-//            }
-//        }
-    }
-}
-
-
-class TableVc : UITableViewController {
-    
-    override func viewDidLoad() {
-        self.title = "Things"
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3;
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
-        cell.textLabel?.text = "\(indexPath.row)";
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-
     }
 }
 

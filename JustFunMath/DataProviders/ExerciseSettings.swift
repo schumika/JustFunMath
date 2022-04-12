@@ -25,7 +25,20 @@ enum ExerciseType: String, CaseIterable {
     }
 }
 
-class ExerciseSettings {
+struct ExerciseSettings {
     var dificulty: ExerciseDificulty = .class0
     var type: ExerciseType = .sorting
+    
+    var allDificulties: [ExerciseDificulty] {
+        ExerciseDificulty.allCases
+    }
+    
+    var allTypes: [ExerciseType] {
+        ExerciseType.allCases
+    }
+    
+    mutating func update(with dificulty: ExerciseDificulty, type: ExerciseType) {
+        self.dificulty = dificulty
+        self.type = type
+    }
 }

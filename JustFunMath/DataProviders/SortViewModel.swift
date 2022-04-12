@@ -9,20 +9,23 @@ import Foundation
 import UIKit
 
 class SortViewModel {
-    var unsortedArray: [Int] = []
+    var unsortedArray: [Int] {
+        get {
+            self.sortAscending = Bool.random()
+            
+            let ind = self.settings.allDificulties.firstIndex { $0 == self.settings.dificulty } ?? 0
+            let unsortedArray = SortArrayDataProvider(level: ind).unsortedArray()
+            self.generatedArray = unsortedArray
+            return unsortedArray
+        }
+    }
     var sortAscending = false
     
-    var dificultyLevel = ExerciseDificulty.class0
-    
-    static func generate(for dificultyLevel: ExerciseDificulty = .class0) -> SortViewModel {
-        let vm = SortViewModel()
-        vm.dificultyLevel = dificultyLevel
-        
-        let ind = ExerciseDificulty.allCases.firstIndex { $0 == dificultyLevel } ?? 0
-        vm.unsortedArray = SortArrayDataProvider(level: ind).unsortedArray()
-        vm.sortAscending = Bool.random()
-        
-        return vm
+    private var settings: ExerciseSettings
+    private var generatedArray: [Int] = []
+
+    init(settings: ExerciseSettings) {
+        self.settings = settings
     }
     
     var title: String {
@@ -30,7 +33,7 @@ class SortViewModel {
     }
     
     var sortedArray: [Int] {
-        self.sortAscending ? self.unsortedArray.sorted() : self.unsortedArray.sorted().reversed()
+        self.sortAscending ? self.generatedArray.sorted() : self.generatedArray.sorted().reversed()
     }
     
     func isSorted(output: [Int]) -> Bool {

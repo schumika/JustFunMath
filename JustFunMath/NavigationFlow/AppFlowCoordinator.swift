@@ -60,7 +60,7 @@ class AppFlowCoordinator: NSObject {
     
     func getSortScreen() -> SortViewController {
         let sortViewController = SortViewController.getFromMainStoryboard() ?? SortViewController()
-        sortViewController.viewModel = SortViewModel.generate(for: self.exerciseSettings.dificulty)
+        sortViewController.viewModel = SortViewModel(settings: self.exerciseSettings)
         sortViewController.delegate = self
         return sortViewController
     }
@@ -133,8 +133,8 @@ extension AppFlowCoordinator: ExerciseViewControllerProtocol {
     }
     
     func didSelectDone() {
-        guard case .sorting(let vc) = self.currentScreen else { return }
-        vc.viewModel = SortViewModel.generate(for: self.exerciseSettings.dificulty)
+//        guard case .sorting(let vc) = self.currentScreen else { return }
+//        vc.viewModel = SortViewModel.generate(for: self.exerciseSettings.dificulty)
     }
 }
 

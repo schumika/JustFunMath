@@ -451,7 +451,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L4W-jO-6Xx" userLabel="TopView">
                                                 <rect key="frame" x="0.0" y="0.0" width="795" height="424"/>
                                                 <subviews>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ShQ-m5-D2r">
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ShQ-m5-D2r">
                                                         <rect key="frame" x="0.0" y="20" width="795" height="384"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="30p-fh-eun">
@@ -733,9 +733,75 @@
             </objects>
             <point key="canvasLocation" x="581.69491525423734" y="630.73170731707319"/>
         </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="aiq-Xq-b5R">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" id="7Pe-d9-XdY" customClass="SettingsViewController" customModule="JustFunMath" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h5g-NZ-IXz">
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brickWall.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="TnM-J7-5GD">
+                                <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackboard_core.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="w11-1d-reT">
+                                <rect key="frame" x="20" y="20" width="1140" height="780"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6CB-HP-a05">
+                                <rect key="frame" x="950" y="703" width="190" height="57"/>
+                                <color key="backgroundColor" red="0.24705882370000001" green="0.38823530080000002" blue="0.54509806630000002" alpha="0.81587219239999997" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="422-09-e9S"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemYellowColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="INAINTE">
+                                    <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="34"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="proceedClicked:" destination="7Pe-d9-XdY" eventType="touchUpInside" id="jos-yk-sUv"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="JJx-v2-Z8l">
+                                <rect key="frame" x="40" y="64" width="1100" height="636"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CiT-0w-aQB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CiT-0w-aQB" firstAttribute="bottom" secondItem="6CB-HP-a05" secondAttribute="bottom" constant="40" id="58J-Ma-4Kw"/>
+                            <constraint firstItem="CiT-0w-aQB" firstAttribute="leading" secondItem="w11-1d-reT" secondAttribute="leading" constant="-20" id="95h-86-A4T"/>
+                            <constraint firstItem="w11-1d-reT" firstAttribute="bottom" secondItem="TnM-J7-5GD" secondAttribute="bottom" constant="-20" id="FKx-VM-MZO"/>
+                            <constraint firstItem="CiT-0w-aQB" firstAttribute="trailing" secondItem="6CB-HP-a05" secondAttribute="trailing" constant="40" id="GtJ-dP-t5Z"/>
+                            <constraint firstAttribute="top" secondItem="TnM-J7-5GD" secondAttribute="top" id="RsR-Rb-3Ij"/>
+                            <constraint firstItem="w11-1d-reT" firstAttribute="top" secondItem="TnM-J7-5GD" secondAttribute="top" constant="20" id="Sfb-Ub-g7D"/>
+                            <constraint firstItem="TnM-J7-5GD" firstAttribute="trailing" secondItem="h5g-NZ-IXz" secondAttribute="trailing" id="VLq-N7-4D5"/>
+                            <constraint firstItem="CiT-0w-aQB" firstAttribute="trailing" secondItem="w11-1d-reT" secondAttribute="trailing" constant="20" id="VXQ-sc-Vtj"/>
+                            <constraint firstAttribute="leading" secondItem="TnM-J7-5GD" secondAttribute="leading" id="Xic-SZ-5IR"/>
+                            <constraint firstItem="JJx-v2-Z8l" firstAttribute="top" secondItem="CiT-0w-aQB" secondAttribute="top" constant="40" id="m8R-QT-9OK"/>
+                            <constraint firstItem="CiT-0w-aQB" firstAttribute="trailing" secondItem="JJx-v2-Z8l" secondAttribute="trailing" constant="40" id="o5I-zL-6cE"/>
+                            <constraint firstItem="JJx-v2-Z8l" firstAttribute="leading" secondItem="CiT-0w-aQB" secondAttribute="leading" constant="40" id="oKF-0c-muh"/>
+                            <constraint firstItem="CiT-0w-aQB" firstAttribute="bottom" secondItem="JJx-v2-Z8l" secondAttribute="bottom" constant="100" id="uXK-Ns-PHf"/>
+                            <constraint firstItem="TnM-J7-5GD" firstAttribute="bottom" secondItem="h5g-NZ-IXz" secondAttribute="bottom" id="wzD-kC-nOh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="JJx-v2-Z8l" id="o7o-cC-fTn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7JB-LY-lKO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-303.05084745762713" y="74.634146341463406"/>
+        </scene>
     </scenes>
     <resources>
         <image name="blackboard2.jpeg" width="2268" height="1276"/>
+        <image name="blackboard_core.jpeg" width="1522" height="1272"/>
         <image name="brickWall.jpg" width="5472" height="3648"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
