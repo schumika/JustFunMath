@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WyR-D4-wCS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="ipad10_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -9,100 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Menu View Controller-->
-        <scene sceneID="L8J-PW-vvL">
-            <objects>
-                <viewController storyboardIdentifier="MenuViewController" id="WyR-D4-wCS" customClass="MenuViewController" customModule="JustFunMath" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="LEM-2X-MHT">
-                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brickWall.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="8Ld-gO-pfb">
-                                <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackboard2.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="PcT-Cx-IRn">
-                                <rect key="frame" x="20" y="20" width="1140" height="780"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CpV-Ua-eo1">
-                                <rect key="frame" x="170" y="33" width="864" height="754"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gHe-si-cVi">
-                                        <rect key="frame" x="624" y="682" width="190" height="57"/>
-                                        <color key="backgroundColor" red="0.24705882370000001" green="0.38823530080000002" blue="0.54509806630000002" alpha="0.81587219239999997" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="yha-KL-faH"/>
-                                        </constraints>
-                                        <color key="tintColor" systemColor="systemYellowColor"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="INAINTE">
-                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="34"/>
-                                        </buttonConfiguration>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="9"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="proceedClicked:" destination="WyR-D4-wCS" eventType="touchUpInside" id="xsb-ps-PEo"/>
-                                        </connections>
-                                    </button>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Wqo-NM-4gV">
-                                        <rect key="frame" x="126" y="51" width="599" height="605"/>
-                                    </tableView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="gHe-si-cVi" secondAttribute="trailing" constant="50" id="0BR-el-JsB"/>
-                                    <constraint firstItem="gHe-si-cVi" firstAttribute="top" secondItem="Wqo-NM-4gV" secondAttribute="bottom" constant="26" id="9Zw-RY-D4C"/>
-                                    <constraint firstItem="Wqo-NM-4gV" firstAttribute="leading" secondItem="CpV-Ua-eo1" secondAttribute="leading" constant="126" id="GZc-n0-iya"/>
-                                    <constraint firstAttribute="bottom" secondItem="gHe-si-cVi" secondAttribute="bottom" constant="15" id="R4R-g9-Ihd"/>
-                                    <constraint firstAttribute="trailing" secondItem="Wqo-NM-4gV" secondAttribute="trailing" constant="139" id="rwu-BM-ZTw"/>
-                                    <constraint firstItem="Wqo-NM-4gV" firstAttribute="top" secondItem="CpV-Ua-eo1" secondAttribute="top" constant="51" id="vxt-iR-jOA"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OnF-XZ-kHC" userLabel="LeftSeparator">
-                                <rect key="frame" x="7" y="33" width="163" height="754"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dNU-5Q-3gW" userLabel="RightSeparator">
-                                <rect key="frame" x="1034" y="33" width="159" height="754"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="wZz-Cr-M5K"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstAttribute="top" secondItem="8Ld-gO-pfb" secondAttribute="top" id="1bx-k6-rRJ"/>
-                            <constraint firstItem="PcT-Cx-IRn" firstAttribute="leading" secondItem="OnF-XZ-kHC" secondAttribute="leading" constant="13" id="1nF-oD-Tor"/>
-                            <constraint firstItem="dNU-5Q-3gW" firstAttribute="bottom" secondItem="PcT-Cx-IRn" secondAttribute="bottom" constant="-13" id="EeZ-lN-cKp"/>
-                            <constraint firstItem="wZz-Cr-M5K" firstAttribute="trailing" secondItem="PcT-Cx-IRn" secondAttribute="trailing" constant="20" id="KSD-Ta-IJj"/>
-                            <constraint firstItem="8Ld-gO-pfb" firstAttribute="bottom" secondItem="LEM-2X-MHT" secondAttribute="bottom" id="LdL-KA-QjN"/>
-                            <constraint firstItem="OnF-XZ-kHC" firstAttribute="width" secondItem="PcT-Cx-IRn" secondAttribute="width" multiplier="1:7" id="N9K-QR-2kP"/>
-                            <constraint firstItem="dNU-5Q-3gW" firstAttribute="leading" secondItem="CpV-Ua-eo1" secondAttribute="trailing" id="We3-P0-80B"/>
-                            <constraint firstItem="dNU-5Q-3gW" firstAttribute="trailing" secondItem="8Ld-gO-pfb" secondAttribute="trailing" constant="13" id="Yl3-ud-Hbs"/>
-                            <constraint firstItem="8Ld-gO-pfb" firstAttribute="trailing" secondItem="LEM-2X-MHT" secondAttribute="trailing" id="Z20-C8-tGV"/>
-                            <constraint firstItem="OnF-XZ-kHC" firstAttribute="width" secondItem="dNU-5Q-3gW" secondAttribute="width" multiplier="1.02333" id="aSb-FD-CFu"/>
-                            <constraint firstItem="dNU-5Q-3gW" firstAttribute="top" secondItem="PcT-Cx-IRn" secondAttribute="top" constant="13" id="dhG-Ef-Cra"/>
-                            <constraint firstItem="PcT-Cx-IRn" firstAttribute="bottom" secondItem="8Ld-gO-pfb" secondAttribute="bottom" constant="-20" id="fpi-QK-0ox"/>
-                            <constraint firstItem="wZz-Cr-M5K" firstAttribute="leading" secondItem="PcT-Cx-IRn" secondAttribute="leading" constant="-20" id="gve-zZ-4wk"/>
-                            <constraint firstItem="OnF-XZ-kHC" firstAttribute="top" secondItem="PcT-Cx-IRn" secondAttribute="top" constant="13" id="h4o-ji-Ym6"/>
-                            <constraint firstItem="CpV-Ua-eo1" firstAttribute="top" secondItem="PcT-Cx-IRn" secondAttribute="top" constant="13" id="iD2-15-VE7"/>
-                            <constraint firstItem="PcT-Cx-IRn" firstAttribute="top" secondItem="8Ld-gO-pfb" secondAttribute="top" constant="20" id="iLD-0m-486"/>
-                            <constraint firstAttribute="leading" secondItem="8Ld-gO-pfb" secondAttribute="leading" id="iXC-nY-war"/>
-                            <constraint firstItem="OnF-XZ-kHC" firstAttribute="bottom" secondItem="PcT-Cx-IRn" secondAttribute="bottom" constant="-13" id="l31-t1-foR"/>
-                            <constraint firstItem="CpV-Ua-eo1" firstAttribute="bottom" secondItem="PcT-Cx-IRn" secondAttribute="bottom" constant="-13" id="qV0-yd-NNf"/>
-                            <constraint firstItem="CpV-Ua-eo1" firstAttribute="leading" secondItem="OnF-XZ-kHC" secondAttribute="trailing" id="rw9-I9-bVU"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="canvas" destination="CpV-Ua-eo1" id="ijd-Wm-gDX"/>
-                        <outlet property="tableView" destination="Wqo-NM-4gV" id="O7d-K9-O4O"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sm5-h4-B1I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-303.05084745762713" y="74.634146341463406"/>
-        </scene>
         <!--Sort View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>

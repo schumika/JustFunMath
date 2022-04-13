@@ -18,7 +18,6 @@
 		581EC1D92805A04600EEA67F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581EC1D82805A04600EEA67F /* SettingsViewController.swift */; };
 		581EC1DB2805A1D400EEA67F /* blackboard_core.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 581EC1DA2805A1D400EEA67F /* blackboard_core.jpeg */; };
 		5844BD3227BF8F28001788DA /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5844BD3127BF8F28001788DA /* BoardViewController.swift */; };
-		5844BD3427BF8F61001788DA /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5844BD3327BF8F61001788DA /* MenuViewController.swift */; };
 		5846E59A27FABB3F00EF80AA /* ComputationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5846E59927FABB3F00EF80AA /* ComputationViewController.swift */; };
 		5846E59C27FABC6100EF80AA /* ComputationGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5846E59B27FABC6100EF80AA /* ComputationGenerator.swift */; };
 		5846E59E27FABD3300EF80AA /* ExerciseSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5846E59D27FABD3300EF80AA /* ExerciseSettings.swift */; };
@@ -51,7 +50,6 @@
 		581EC1D82805A04600EEA67F /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		581EC1DA2805A1D400EEA67F /* blackboard_core.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blackboard_core.jpeg; sourceTree = "<group>"; };
 		5844BD3127BF8F28001788DA /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
-		5844BD3327BF8F61001788DA /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		5846E59927FABB3F00EF80AA /* ComputationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputationViewController.swift; sourceTree = "<group>"; };
 		5846E59B27FABC6100EF80AA /* ComputationGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputationGenerator.swift; sourceTree = "<group>"; };
 		5846E59D27FABD3300EF80AA /* ExerciseSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSettings.swift; sourceTree = "<group>"; };
@@ -101,9 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				58B243DA280413F700F54B1D /* NewAppFlowCoordinator.swift */,
-				5844BD3127BF8F28001788DA /* BoardViewController.swift */,
-				5844BD3327BF8F61001788DA /* MenuViewController.swift */,
 				581EC1D82805A04600EEA67F /* SettingsViewController.swift */,
+				5844BD3127BF8F28001788DA /* BoardViewController.swift */,
 				5846E5A427FAE79500EF80AA /* ExerciseViewController.swift */,
 				58F7CB1527BD08D800167097 /* SortViewController.swift */,
 				5846E59927FABB3F00EF80AA /* ComputationViewController.swift */,
@@ -268,7 +265,6 @@
 				589535F927F8D6060066669E /* SingleDigitComputationView.swift in Sources */,
 				58B243DB280413F700F54B1D /* NewAppFlowCoordinator.swift in Sources */,
 				5846E5A527FAE79500EF80AA /* ExerciseViewController.swift in Sources */,
-				5844BD3427BF8F61001788DA /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
