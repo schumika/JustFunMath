@@ -7,35 +7,6 @@
 
 import Foundation
 
-class Computation {
-    var digit1: Int = 0
-    var digit2: Int = 0
-    var op: (Int, Int)->(Int) = {_, _ in 0}
-    var operatorDescription: String = "+"
-    
-    static func addition(t1: Int, t2: Int) -> Computation {
-        let comp = Computation()
-        comp.digit1 = t1
-        comp.digit2 = t2
-        comp.op = { t1, t2 in return t1 + t2}
-        comp.operatorDescription = "+"
-        return comp
-    }
-    
-    static func substraction(t1: Int, t2: Int) -> Computation {
-        let comp = Computation()
-        comp.digit1 = t1
-        comp.digit2 = t2
-        comp.op = { t1, t2 in return t1 - t2}
-        comp.operatorDescription = "-"
-        return comp
-    }
-    
-    var correctResult: Int {
-        return self.op(self.digit1, self.digit2)
-    }
-}
-
 
 // TODO: remove static functions!!!!
 class ComputationGenerator {

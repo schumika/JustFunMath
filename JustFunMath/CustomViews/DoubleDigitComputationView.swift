@@ -25,8 +25,8 @@ class DoubleDigitComputationView: LazyNibLoaderView, ComputationViewProtocol {
     func configure(with computation: Computation) {
         self.computation = computation
 
-        self.term1Label.set(text: "\(computation.digit1)")
-        self.term2Label.set(text: "\(computation.digit2)")
+        self.term1Label.set(text: "\(computation.term1)")
+        self.term2Label.set(text: "\(computation.term2)")
         self.operandLabel.set(text: "\(computation.operatorDescription)")
         self.equalsLabel.set(text: "=")
         self.resultLabel.set(textColor: .yellow)
