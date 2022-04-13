@@ -11,17 +11,17 @@ import UIKit
 class ComputationsViewModel {
     
     var computations: [Computation] {
-        ComputationGenerator.generateComputations(settings: self.settings)
+        ComputationGenerator.generateComputations(level: level)
     }
     
-    private var settings: ExerciseSettings
+    private var level: ExerciseLevel
     
     var isSingleDigit: Bool {
-        settings.dificulty == .class0
+        level == .class0
     }
 
-    init(settings: ExerciseSettings) {
-        self.settings = settings
+    init(level: ExerciseLevel) {
+        self.level = level
     }
 }
 
@@ -41,7 +41,26 @@ class ComputationViewController: ExerciseViewController, UICollectionViewDataSou
         }
     }
     
-    var viewModel: ComputationsViewModel = .init(settings: .init())
+    var viewModel: ComputationsViewModel = .init(level: .class0) {
+        didSet {
+            guard self.isViewLoaded && (self.view.window != nil) else { return }
+            
+            self.configureBoard()
+            
+            // making sure cells are reloaded before getting source and destination views
+            CATransaction.begin()
+            CATransaction.setCompletionBlock({
+                self.getSourceAndDestinationViews()
+            })
+            self.collectionView.reloadData()
+            CATransaction.commit()
+        }
+    }
+    
+    func getSourceAndDestinationViews() {
+        self.sourceViews = self.allDigitLabels
+        self.destinationViews = self.computationViews().flatMap { $0.resultLabels }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,8 +87,7 @@ class ComputationViewController: ExerciseViewController, UICollectionViewDataSou
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.sourceViews = self.allDigitLabels
-        self.destinationViews = self.computationViews().flatMap { $0.resultLabels }
+        self.getSourceAndDestinationViews()
     }
     
 

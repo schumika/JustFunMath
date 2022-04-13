@@ -8,9 +8,19 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    
+    /*
+     * My TODO list
+     * - use push based navigation instead of presenting
+     * - use master/detail navigation
+     * - get all settings in one screen
+     * - refactor ComputationsGenerator to stop using static
+     * - refactor sorting screens to have input array at the bottom, and use collection view for output array, similar to computation vc
+     * - persist settings data in user defaults
+     */
 
     var window: UIWindow?
-    let coordinator = AppFlowCoordinator()
+    let newCoordinator = NewAppFlowCoordinator()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -22,7 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-        window?.rootViewController = self.coordinator.getInitialScreen()
+        window?.rootViewController = self.newCoordinator.splitViewController
         window?.makeKeyAndVisible()
     }
 

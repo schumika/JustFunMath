@@ -8,12 +8,12 @@
 import UIKit
 
 enum AppScreen {
-    case dificulties(MenuViewController) , exerciseTypes(MenuViewController), sorting(SortViewController), computationCollection(ComputationViewController), none
+    case levels(MenuViewController) , exerciseTypes(MenuViewController), sorting(SortViewController), computationCollection(ComputationViewController), none
     
     var viewController: UIViewController? {
         switch self {
         case .none : return nil
-        case .dificulties(let vc): return vc
+        case .levels(let vc): return vc
         case .exerciseTypes(let vc): return vc
         case .sorting(let vc): return vc
         case .computationCollection(let vc): return vc
@@ -27,12 +27,12 @@ class AppFlowCoordinator: NSObject {
     var exerciseSettings = ExerciseSettings()
     
     func getInitialScreen() -> UIViewController {
-        //let vc = self.getMenuScreen(for: .dificulties(self.getMenuViewController()))
+        //let vc = self.getMenuScreen(for: .levels(self.getMenuViewController()))
 //        let vc = self.getSortScreen()
-//        self.currentScreen = .sorting(vc)//.dificulties(vc)
+//        self.currentScreen = .sorting(vc)//.levels(vc)
         
         let vc = self.getComputationViewController()
-        self.currentScreen = .computationCollection(vc)//.dificulties(vc)
+        self.currentScreen = .computationCollection(vc)//.levels(vc)
         
         return vc
     }
@@ -40,8 +40,8 @@ class AppFlowCoordinator: NSObject {
     func getMenuScreen(for screenType: AppScreen) -> MenuViewController {
         let vc = screenType.viewController as? MenuViewController ?? MenuViewController()
 
-        if case .dificulties(_) = screenType {
-            vc.options = ExerciseDificulty.allCases.map { $0.rawValue }
+        if case .levels(_) = screenType {
+            vc.options = ExerciseLevel.allCases.map { $0.rawValue }
         } else {
             vc.options = ExerciseType.allCases.map { $0.rawValue }
         }
@@ -60,7 +60,7 @@ class AppFlowCoordinator: NSObject {
     
     func getSortScreen() -> SortViewController {
         let sortViewController = SortViewController.getFromMainStoryboard() ?? SortViewController()
-        sortViewController.viewModel = SortViewModel.generate(for: self.exerciseSettings.dificulty)
+        sortViewController.viewModel = SortViewModel(level: self.exerciseSettings.level)
         sortViewController.delegate = self
         return sortViewController
     }
@@ -68,7 +68,7 @@ class AppFlowCoordinator: NSObject {
     func getComputationViewController() -> ComputationViewController {
         let vc = ComputationViewController.getFromMainStoryboard() ?? ComputationViewController()
         vc.delegate = self
-        vc.viewModel = .init(settings: self.exerciseSettings)
+        vc.viewModel = .init(level: self.exerciseSettings.level)
         return vc
     }
     
@@ -108,8 +108,8 @@ class AppFlowCoordinator: NSObject {
 
 extension AppFlowCoordinator: MenuViewControllerProtocol {
     func menuViewControllerDidSelectProceed(withSelectedOption option: Int) {
-        if case .dificulties(_) = self.currentScreen {
-            self.exerciseSettings.dificulty = ExerciseDificulty.allCases[option]
+        if case .levels(_) = self.currentScreen {
+            self.exerciseSettings.level = ExerciseLevel.allCases[option]
             self.showMenuScreen()
         } else if case .exerciseTypes(_) = self.currentScreen {
             self.exerciseSettings.type = ExerciseType.allCases[option]
@@ -124,7 +124,7 @@ extension AppFlowCoordinator: MenuViewControllerProtocol {
 
 extension AppFlowCoordinator: ExerciseViewControllerProtocol {
     func didSelectSettings() {
-        let screen = AppScreen.dificulties(self.getMenuViewController())
+        let screen = AppScreen.levels(self.getMenuViewController())
         let vc = self.getMenuScreen(for: screen)
         vc.modalPresentationStyle = .fullScreen
 
@@ -133,8 +133,8 @@ extension AppFlowCoordinator: ExerciseViewControllerProtocol {
     }
     
     func didSelectDone() {
-        guard case .sorting(let vc) = self.currentScreen else { return }
-        vc.viewModel = SortViewModel.generate(for: self.exerciseSettings.dificulty)
+//        guard case .sorting(let vc) = self.currentScreen else { return }
+//        vc.viewModel = SortViewModel.generate(for: self.exerciseSettings.level)
     }
 }
 
