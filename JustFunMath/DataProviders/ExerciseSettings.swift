@@ -33,8 +33,21 @@ enum ExerciseType: String, CaseIterable {
 }
 
 struct ExerciseSettings {
-    var level: ExerciseLevel = .class0
-    var type: ExerciseType = .sorting
+    
+    enum Key: String {
+        case dificulty = "DificultyLevel"
+        case type = "ExerciseType"
+    }
+    
+    private let userDefaults = UserDefaults()
+    
+    init() {
+        self.level = ExerciseLevel(rawValue: self.userDefaults.value(forKey: Key.dificulty.rawValue) as? String ?? "") ?? .class0
+        self.type = ExerciseType(rawValue: self.userDefaults.value(forKey: Key.type.rawValue) as? String ?? "") ?? .sorting
+    }
+    
+    var level: ExerciseLevel
+    var type: ExerciseType
     
     var allLevels: [ExerciseLevel] {
         ExerciseLevel.allCases
@@ -47,5 +60,14 @@ struct ExerciseSettings {
     mutating func update(with level: ExerciseLevel, type: ExerciseType) {
         self.level = level
         self.type = type
+        
+        self.saveValues()
+    }
+    
+    func saveValues() {
+        self.userDefaults.set(self.level.rawValue, forKey: Key.dificulty.rawValue)
+        self.userDefaults.set(self.type.rawValue, forKey: Key.type.rawValue)
+        
+        self.userDefaults.synchronize()
     }
 }
