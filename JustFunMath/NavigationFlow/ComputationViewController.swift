@@ -7,14 +7,14 @@
 
 import UIKit
 
-// TODO: inject ComputationsGenerator
 class ComputationsViewModel {
     
     var computations: [Computation] {
-        ComputationGenerator.generateComputations(level: level)
+        self.computationsDataSource.generateComputations(level: self.level)
     }
     
     private var level: ExerciseLevel
+    private let computationsDataSource = ComputationDataSource()
     
     var isSingleDigit: Bool {
         level == .class0
