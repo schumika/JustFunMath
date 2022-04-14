@@ -19,10 +19,14 @@
 		581EC1DB2805A1D400EEA67F /* blackboard_core.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 581EC1DA2805A1D400EEA67F /* blackboard_core.jpeg */; };
 		5844BD3227BF8F28001788DA /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5844BD3127BF8F28001788DA /* BoardViewController.swift */; };
 		5846E59A27FABB3F00EF80AA /* ComputationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5846E59927FABB3F00EF80AA /* ComputationViewController.swift */; };
-		5846E59C27FABC6100EF80AA /* ComputationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5846E59B27FABC6100EF80AA /* ComputationDataSource.swift */; };
+		5846E59C27FABC6100EF80AA /* ExercisesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5846E59B27FABC6100EF80AA /* ExercisesDataSource.swift */; };
 		5846E59E27FABD3300EF80AA /* ExerciseSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5846E59D27FABD3300EF80AA /* ExerciseSettings.swift */; };
 		5846E5A027FAD76400EF80AA /* ComputationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5846E59F27FAD76400EF80AA /* ComputationCollectionViewCell.swift */; };
 		5846E5A527FAE79500EF80AA /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5846E5A427FAE79500EF80AA /* ExerciseViewController.swift */; };
+		586694F128085B6D005838D0 /* ComparisonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586694F028085B6D005838D0 /* ComparisonViewController.swift */; };
+		586694F328085C8E005838D0 /* Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586694F228085C8E005838D0 /* Comparison.swift */; };
+		586694F5280860B0005838D0 /* SingleDigitComparisonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 586694F4280860B0005838D0 /* SingleDigitComparisonView.xib */; };
+		586694F7280860C0005838D0 /* SingleDigitComparisonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586694F6280860C0005838D0 /* SingleDigitComparisonView.swift */; };
 		589535F927F8D6060066669E /* SingleDigitComputationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589535F827F8D6060066669E /* SingleDigitComputationView.swift */; };
 		589535FB27F8D61A0066669E /* SingleDigitComputationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 589535FA27F8D61A0066669E /* SingleDigitComputationView.xib */; };
 		58B243DB280413F700F54B1D /* NewAppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B243DA280413F700F54B1D /* NewAppFlowCoordinator.swift */; };
@@ -52,10 +56,14 @@
 		581EC1DA2805A1D400EEA67F /* blackboard_core.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blackboard_core.jpeg; sourceTree = "<group>"; };
 		5844BD3127BF8F28001788DA /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		5846E59927FABB3F00EF80AA /* ComputationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputationViewController.swift; sourceTree = "<group>"; };
-		5846E59B27FABC6100EF80AA /* ComputationDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputationDataSource.swift; sourceTree = "<group>"; };
+		5846E59B27FABC6100EF80AA /* ExercisesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesDataSource.swift; sourceTree = "<group>"; };
 		5846E59D27FABD3300EF80AA /* ExerciseSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSettings.swift; sourceTree = "<group>"; };
 		5846E59F27FAD76400EF80AA /* ComputationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputationCollectionViewCell.swift; sourceTree = "<group>"; };
 		5846E5A427FAE79500EF80AA /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
+		586694F028085B6D005838D0 /* ComparisonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComparisonViewController.swift; sourceTree = "<group>"; };
+		586694F228085C8E005838D0 /* Comparison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comparison.swift; sourceTree = "<group>"; };
+		586694F4280860B0005838D0 /* SingleDigitComparisonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleDigitComparisonView.xib; sourceTree = "<group>"; };
+		586694F6280860C0005838D0 /* SingleDigitComparisonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleDigitComparisonView.swift; sourceTree = "<group>"; };
 		589535F827F8D6060066669E /* SingleDigitComputationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDigitComputationView.swift; sourceTree = "<group>"; };
 		589535FA27F8D61A0066669E /* SingleDigitComputationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleDigitComputationView.xib; sourceTree = "<group>"; };
 		58B243DA280413F700F54B1D /* NewAppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAppFlowCoordinator.swift; sourceTree = "<group>"; };
@@ -106,6 +114,7 @@
 				5846E5A427FAE79500EF80AA /* ExerciseViewController.swift */,
 				58F7CB1527BD08D800167097 /* SortViewController.swift */,
 				5846E59927FABB3F00EF80AA /* ComputationViewController.swift */,
+				586694F028085B6D005838D0 /* ComparisonViewController.swift */,
 			);
 			path = NavigationFlow;
 			sourceTree = "<group>";
@@ -116,8 +125,9 @@
 				580DF2F727BE8C1400C1CBF4 /* SortArrayDataProvider.swift */,
 				58F13AC027C3A2CE001D068E /* SortViewModel.swift */,
 				5846E59D27FABD3300EF80AA /* ExerciseSettings.swift */,
-				5846E59B27FABC6100EF80AA /* ComputationDataSource.swift */,
+				5846E59B27FABC6100EF80AA /* ExercisesDataSource.swift */,
 				58F324312807100100872CCA /* Computation.swift */,
+				586694F228085C8E005838D0 /* Comparison.swift */,
 			);
 			path = DataProviders;
 			sourceTree = "<group>";
@@ -128,6 +138,8 @@
 				5846E59F27FAD76400EF80AA /* ComputationCollectionViewCell.swift */,
 				589535F827F8D6060066669E /* SingleDigitComputationView.swift */,
 				589535FA27F8D61A0066669E /* SingleDigitComputationView.xib */,
+				586694F6280860C0005838D0 /* SingleDigitComparisonView.swift */,
+				586694F4280860B0005838D0 /* SingleDigitComparisonView.xib */,
 				58179A1A27FC0F8B00AAFABD /* DoubleDigitComputationView.swift */,
 				58179A1827FC0F7A00AAFABD /* DoubleDigitComputationView.xib */,
 				58179A1C27FC110400AAFABD /* TwoDigitView.swift */,
@@ -232,6 +244,7 @@
 				581EC1DB2805A1D400EEA67F /* blackboard_core.jpeg in Resources */,
 				58F7CB2627BD09CE00167097 /* blackboard.jpg in Resources */,
 				58F7CB1E27BD08DA00167097 /* LaunchScreen.storyboard in Resources */,
+				586694F5280860B0005838D0 /* SingleDigitComparisonView.xib in Resources */,
 				589535FB27F8D61A0066669E /* SingleDigitComputationView.xib in Resources */,
 				58F7CB1B27BD08DA00167097 /* Assets.xcassets in Resources */,
 				58F7CB2827BD0B6800167097 /* brickWall.jpg in Resources */,
@@ -250,13 +263,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5846E59C27FABC6100EF80AA /* ComputationDataSource.swift in Sources */,
+				5846E59C27FABC6100EF80AA /* ExercisesDataSource.swift in Sources */,
 				58179A1D27FC110400AAFABD /* TwoDigitView.swift in Sources */,
 				58F324322807100100872CCA /* Computation.swift in Sources */,
 				5844BD3227BF8F28001788DA /* BoardViewController.swift in Sources */,
 				581EC1D92805A04600EEA67F /* SettingsViewController.swift in Sources */,
 				5846E59A27FABB3F00EF80AA /* ComputationViewController.swift in Sources */,
 				58F7CB1627BD08D800167097 /* SortViewController.swift in Sources */,
+				586694F7280860C0005838D0 /* SingleDigitComparisonView.swift in Sources */,
+				586694F128085B6D005838D0 /* ComparisonViewController.swift in Sources */,
 				58F7CB1227BD08D800167097 /* AppDelegate.swift in Sources */,
 				58179A1B27FC0F8C00AAFABD /* DoubleDigitComputationView.swift in Sources */,
 				580DF2F127BE395900C1CBF4 /* LazyNibLoader.swift in Sources */,
@@ -268,6 +283,7 @@
 				580DF2F427BE3BDB00C1CBF4 /* RoundLabelView.swift in Sources */,
 				589535F927F8D6060066669E /* SingleDigitComputationView.swift in Sources */,
 				58B243DB280413F700F54B1D /* NewAppFlowCoordinator.swift in Sources */,
+				586694F328085C8E005838D0 /* Comparison.swift in Sources */,
 				5846E5A527FAE79500EF80AA /* ExerciseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

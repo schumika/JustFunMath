@@ -85,7 +85,8 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         cell.backgroundColor = .clear
         cell.textLabel?.backgroundColor = .clear
         cell.textLabel?.textColor = .white
-        cell.textLabel?.font = UIFont(name: "Chalkduster", size: 40)
+        cell.textLabel?.font = UIFont(name: "Chalkduster", size: 30)
+        cell.textLabel?.adjustsFontSizeToFitWidth = true
         
         cell.textLabel?.textAlignment = .center
         cell.textLabel?.text =  sectionData.options[indexPath.row]
@@ -104,7 +105,7 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         label.text = self.viewModel.sections[section].title
         label.backgroundColor = .clear
         label.textColor = .cyan
-        label.font = UIFont(name: "Chalkduster", size: 25)
+        label.font = UIFont(name: "Chalkduster", size: 20)
         
         return label
     }

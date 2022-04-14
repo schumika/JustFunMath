@@ -26,6 +26,7 @@ enum ExerciseLevel: String, CaseIterable {
 enum ExerciseType: String, CaseIterable {
     case sorting = "Sortare"
     case computing = "Operatii"
+    case comparison = "Comparatii"
     
     static var allOptions: [String] {
         Self.allCases.map { $0.rawValue }

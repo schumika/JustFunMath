@@ -7,10 +7,10 @@
 
 import UIKit
 
-class ComputationsViewModel {
+class ComparisonsViewModel {
     
-    var computations: [Computation] {
-        self.computationsDataSource.generateComputations(level: self.level)
+    var comparisons: [Comparison] {
+        self.computationsDataSource.generateComparisons(level: /*self.level*/.class0)
     }
     
     private var level: ExerciseLevel
@@ -25,7 +25,7 @@ class ComputationsViewModel {
     }
 }
 
-class ComputationViewController: ExerciseViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ComparisonViewController: ExerciseViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var digitsStack: UIStackView!
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
@@ -36,12 +36,12 @@ class ComputationViewController: ExerciseViewController, UICollectionViewDataSou
             self.collectionView.delegate = self
             self.collectionView.collectionViewLayout = layout
             
-            self.collectionView.register(ComputationCollectionViewCell<SingleDigitComputationView>.self, forCellWithReuseIdentifier: "SingleDigitComputationCell")
-            self.collectionView.register(ComputationCollectionViewCell<DoubleDigitComputationView>.self, forCellWithReuseIdentifier: "DoubleDigitComputationCell")
+            self.collectionView.register(ComparisonCollectionViewCell<SingleDigitComparisonView>.self, forCellWithReuseIdentifier: "SingleDigitComparisonCell")
+//            self.collectionView.register(ComputationCollectionViewCell<DoubleDigitComputationView>.self, forCellWithReuseIdentifier: "DoubleDigitComputationCell")
         }
     }
     
-    var viewModel: ComputationsViewModel = .init(level: .class0) {
+    var viewModel: ComparisonsViewModel = .init(level: .class0) {
         didSet {
             guard self.isViewLoaded && (self.view.window != nil) else { return }
             
@@ -59,7 +59,7 @@ class ComputationViewController: ExerciseViewController, UICollectionViewDataSou
     
     func getSourceAndDestinationViews() {
         self.sourceViews = self.allDigitLabels
-        self.destinationViews = self.computationViews().flatMap { $0.resultLabels }
+        self.destinationViews = self.comparisonViews().flatMap { $0.resultLabels }
     }
     
     override func viewDidLoad() {
@@ -67,7 +67,7 @@ class ComputationViewController: ExerciseViewController, UICollectionViewDataSou
         // Do any additional setup after loading the view.
         
         self.onMovingEnded = {
-            self.computationsCompleted = self.computationViews().map { $0.resultLabels }.reduce(true, { partialResult, resultLabels in
+            self.computationsCompleted = self.comparisonViews().map { $0.resultLabels }.reduce(true, { partialResult, resultLabels in
                 if resultLabels.count == 1 {
                     return partialResult && !(resultLabels[0].label.text?.isEmpty ?? false)
                 } else {
@@ -80,7 +80,7 @@ class ComputationViewController: ExerciseViewController, UICollectionViewDataSou
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.loadDigits()
+        self.loadSigns()
         self.configureBoard()
     }
     
@@ -96,50 +96,52 @@ class ComputationViewController: ExerciseViewController, UICollectionViewDataSou
             self.doneButton.isEnabled = self.computationsCompleted
         }
     }
-    var computations: [Computation] = []
+    var comparisons: [Comparison] = []
 
     var allDigitLabels: [RoundLabelView] = []
 
     func configureBoard() {
         self.computationsCompleted = false
-        self.computations = self.viewModel.computations
+        self.comparisons = self.viewModel.comparisons
         self.collectionView.reloadData()
     }
     
-    private func loadDigits() {
+    private func loadSigns() {
         self.allDigitLabels.removeAll()
+        
+        let signs = ["<", "=", ">"]
 
-        for (ind1, substack) in self.digitsStack.arrangedSubviews.enumerated() {
+        for (_, substack) in self.digitsStack.arrangedSubviews.enumerated() {
             guard let subviews = (substack as? UIStackView)?.arrangedSubviews else { return }
             for (ind2, subview) in  subviews.enumerated() {
                 
             guard let roundLabelView = subview as? RoundLabelView else { return }
             let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
 
-            roundLabelView.configure(with: "\((ind1 == 0 ? 0 : 5) + ind2)", panGestureRecognizer: panGestureRecognizer)
+            roundLabelView.configure(with: "\(signs[ind2])", panGestureRecognizer: panGestureRecognizer)
             allDigitLabels.append(roundLabelView)
             }
         }
     }
     
-    private func computationViews() -> [ComputationViewProtocol] {
-        var computationViews: [ComputationViewProtocol] = []
+    private func comparisonViews() -> [ComparisonViewProtocol] {
+        var comparisonViews: [ComparisonViewProtocol] = []
         if self.viewModel.isSingleDigit {
-            for cell in self.collectionView.visibleCells.compactMap({ $0 as? ComputationCollectionViewCell<SingleDigitComputationView> }) {
-                computationViews.append(cell.computationView)
+            for cell in self.collectionView.visibleCells.compactMap({ $0 as? ComparisonCollectionViewCell<SingleDigitComparisonView> }) {
+                comparisonViews.append(cell.comparisonView)
             }
         } else {
-            for cell in self.collectionView.visibleCells.compactMap({ $0 as? ComputationCollectionViewCell<DoubleDigitComputationView> }) {
-                computationViews.append(cell.computationView)
+            for cell in self.collectionView.visibleCells.compactMap({ $0 as? ComparisonCollectionViewCell<SingleDigitComparisonView> }) {
+                comparisonViews.append(cell.comparisonView)
             }
         }
         
-        return computationViews
+        return comparisonViews
     }
 
     override func doneButtonClicked(_ sender: Any) {
         
-        let isCorrect = self.computationViews().reduce(true) { $0 && $1.isCorrect }
+        let isCorrect = self.comparisonViews().reduce(true) { $0 && $1.isCorrect }
 
         if isCorrect {
             super.doneButtonClicked(sender)
@@ -151,18 +153,19 @@ class ComputationViewController: ExerciseViewController, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.computations.count
+        self.comparisons.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if self.viewModel.isSingleDigit {
-            let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "SingleDigitComputationCell", for: indexPath) as? ComputationCollectionViewCell<SingleDigitComputationView>
-            collectionViewCell?.configure(with: self.computations[indexPath.row])
+            let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "SingleDigitComparisonCell", for: indexPath) as? ComparisonCollectionViewCell<SingleDigitComparisonView>
+            collectionViewCell?.configure(with: self.comparisons[indexPath.row])
             return collectionViewCell ?? UICollectionViewCell()
         } else {
-            let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DoubleDigitComputationCell", for: indexPath) as? ComputationCollectionViewCell<DoubleDigitComputationView>
-            collectionViewCell?.configure(with: self.computations[indexPath.row])
-            return collectionViewCell ?? UICollectionViewCell()
+//            let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DoubleDigitComputationCell", for: indexPath) as? ComputationCollectionViewCell<DoubleDigitComputationView>
+//            collectionViewCell?.configure(with: self.comparisons[indexPath.row])
+//            return collectionViewCell ?? UICollectionViewCell()
+            return UICollectionViewCell()
         }
     }
     
