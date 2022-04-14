@@ -29,29 +29,30 @@ extension Operator {
 }
 
 class Computation {
-    var term1: Int = 0
-    var term2: Int = 0
-    var op: Operator = .addition
-    var operatorDescription: String = "+"
-    
-    static func addition(t1: Int, t2: Int) -> Computation {
-        Self.operation(t1: t1, t2: t2, operator: .addition)
+    let term1: Int
+    let term2: Int
+    let op: Operator
+    var operatorDescription: String {
+        self.op.description
     }
     
-    static func substraction(t1: Int, t2: Int) -> Computation {
-        Self.operation(t1: t1, t2: t2, operator: .substraction)
-    }
-    
-    static func operation(t1: Int, t2: Int, operator: Operator) -> Computation {
-        let comp = Computation()
-        comp.term1 = t1
-        comp.term2 = t2
-        comp.op = `operator`
-        comp.operatorDescription = comp.op.description
-        return comp
+    init(t1: Int, t2: Int, operator: Operator) {
+        self.term1 = t1
+        self.term2 = t2
+        self.op = `operator`
     }
     
     var correctResult: Int {
         return self.op.operation(self.term1, self.term2)
+    }
+}
+
+extension Computation {
+    static func addition(_ t: (Int, Int)) -> Computation {
+        return .init(t1: t.0, t2: t.1, operator: .addition)
+    }
+    
+    static func substraction(_ t: (Int, Int)) -> Computation {
+        return .init(t1: t.0, t2: t.1, operator: .substraction)
     }
 }

@@ -15,7 +15,7 @@ class DoubleDigitComputationView: LazyNibLoaderView, ComputationViewProtocol {
     @IBOutlet weak var equalsLabel: RoundLabelView!
     @IBOutlet weak var resultLabel: TwoDigitView!
     
-    private var computation: Computation = .addition(t1: 1, t2: 1)
+    private var correctResult: Int = 0
     
     var maxWith: CGFloat = 0.75
     var resultLabels: [RoundLabelView] {
@@ -23,14 +23,14 @@ class DoubleDigitComputationView: LazyNibLoaderView, ComputationViewProtocol {
     }
     
     func configure(with computation: Computation) {
-        self.computation = computation
-
         self.term1Label.set(text: "\(computation.term1)")
         self.term2Label.set(text: "\(computation.term2)")
         self.operandLabel.set(text: "\(computation.operatorDescription)")
         self.equalsLabel.set(text: "=")
         self.resultLabel.set(textColor: .yellow)
         self.resultLabel.set(text: "")
+        
+        self.correctResult = computation.correctResult
 
         let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap(_:)))
         doubleTapGesture.numberOfTapsRequired = 2
@@ -42,6 +42,6 @@ class DoubleDigitComputationView: LazyNibLoaderView, ComputationViewProtocol {
         }
 
     var isCorrect: Bool {
-        return self.computation.correctResult == self.resultLabel.numberValue
+        return self.correctResult == self.resultLabel.numberValue
     }
 }

@@ -19,7 +19,7 @@
 		581EC1DB2805A1D400EEA67F /* blackboard_core.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 581EC1DA2805A1D400EEA67F /* blackboard_core.jpeg */; };
 		5844BD3227BF8F28001788DA /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5844BD3127BF8F28001788DA /* BoardViewController.swift */; };
 		5846E59A27FABB3F00EF80AA /* ComputationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5846E59927FABB3F00EF80AA /* ComputationViewController.swift */; };
-		5846E59C27FABC6100EF80AA /* ComputationGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5846E59B27FABC6100EF80AA /* ComputationGenerator.swift */; };
+		5846E59C27FABC6100EF80AA /* ComputationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5846E59B27FABC6100EF80AA /* ComputationDataSource.swift */; };
 		5846E59E27FABD3300EF80AA /* ExerciseSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5846E59D27FABD3300EF80AA /* ExerciseSettings.swift */; };
 		5846E5A027FAD76400EF80AA /* ComputationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5846E59F27FAD76400EF80AA /* ComputationCollectionViewCell.swift */; };
 		5846E5A527FAE79500EF80AA /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5846E5A427FAE79500EF80AA /* ExerciseViewController.swift */; };
@@ -52,7 +52,7 @@
 		581EC1DA2805A1D400EEA67F /* blackboard_core.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blackboard_core.jpeg; sourceTree = "<group>"; };
 		5844BD3127BF8F28001788DA /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		5846E59927FABB3F00EF80AA /* ComputationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputationViewController.swift; sourceTree = "<group>"; };
-		5846E59B27FABC6100EF80AA /* ComputationGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputationGenerator.swift; sourceTree = "<group>"; };
+		5846E59B27FABC6100EF80AA /* ComputationDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputationDataSource.swift; sourceTree = "<group>"; };
 		5846E59D27FABD3300EF80AA /* ExerciseSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSettings.swift; sourceTree = "<group>"; };
 		5846E59F27FAD76400EF80AA /* ComputationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputationCollectionViewCell.swift; sourceTree = "<group>"; };
 		5846E5A427FAE79500EF80AA /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 				580DF2F727BE8C1400C1CBF4 /* SortArrayDataProvider.swift */,
 				58F13AC027C3A2CE001D068E /* SortViewModel.swift */,
 				5846E59D27FABD3300EF80AA /* ExerciseSettings.swift */,
-				5846E59B27FABC6100EF80AA /* ComputationGenerator.swift */,
+				5846E59B27FABC6100EF80AA /* ComputationDataSource.swift */,
 				58F324312807100100872CCA /* Computation.swift */,
 			);
 			path = DataProviders;
@@ -250,7 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5846E59C27FABC6100EF80AA /* ComputationGenerator.swift in Sources */,
+				5846E59C27FABC6100EF80AA /* ComputationDataSource.swift in Sources */,
 				58179A1D27FC110400AAFABD /* TwoDigitView.swift in Sources */,
 				58F324322807100100872CCA /* Computation.swift in Sources */,
 				5844BD3227BF8F28001788DA /* BoardViewController.swift in Sources */,
