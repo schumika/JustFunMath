@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
      * ❌ use push based navigation instead of presenting
      * ☑️ use master/detail navigation
      * ☑️ get all settings in one screen
-     * - refactor ComputationsGenerator to stop using static
+     * ☑️ refactor ComputationsGenerator to stop using static
      * - refactor sorting screens to have input array at the bottom, and use collection view for output array, similar to computation vc
      * - persist settings data in user defaults
      * - add comparison exercise type
