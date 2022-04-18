@@ -25,4 +25,14 @@ class Comparison {
         if term1 < term2 { return .lessThan }
         return .equalTo
     }
+    
+    func isCorrect(result: String) -> Bool {
+        switch (self.correctResult, result) {
+        case (.greaterThan, ">"): return true
+        case (.lessThan, "<"): return true
+        case (.equalTo, "="): return true
+        default:
+            return false
+        }
+    }
 }

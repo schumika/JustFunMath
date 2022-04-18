@@ -10,7 +10,7 @@ import UIKit
 class ComparisonsViewModel {
     
     var comparisons: [Comparison] {
-        self.computationsDataSource.generateComparisons(level: /*self.level*/.class0)
+        self.computationsDataSource.generateComparisons(level: self.level)
     }
     
     private var level: ExerciseLevel
@@ -37,7 +37,7 @@ class ComparisonViewController: ExerciseViewController, UICollectionViewDataSour
             self.collectionView.collectionViewLayout = layout
             
             self.collectionView.register(ComparisonCollectionViewCell<SingleDigitComparisonView>.self, forCellWithReuseIdentifier: "SingleDigitComparisonCell")
-//            self.collectionView.register(ComputationCollectionViewCell<DoubleDigitComputationView>.self, forCellWithReuseIdentifier: "DoubleDigitComputationCell")
+            self.collectionView.register(ComparisonCollectionViewCell<DoubleDigitComparisonView>.self, forCellWithReuseIdentifier: "DoubleDigitComparisonCell")
         }
     }
     
@@ -131,7 +131,7 @@ class ComparisonViewController: ExerciseViewController, UICollectionViewDataSour
                 comparisonViews.append(cell.comparisonView)
             }
         } else {
-            for cell in self.collectionView.visibleCells.compactMap({ $0 as? ComparisonCollectionViewCell<SingleDigitComparisonView> }) {
+            for cell in self.collectionView.visibleCells.compactMap({ $0 as? ComparisonCollectionViewCell<DoubleDigitComparisonView> }) {
                 comparisonViews.append(cell.comparisonView)
             }
         }
@@ -162,10 +162,9 @@ class ComparisonViewController: ExerciseViewController, UICollectionViewDataSour
             collectionViewCell?.configure(with: self.comparisons[indexPath.row])
             return collectionViewCell ?? UICollectionViewCell()
         } else {
-//            let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DoubleDigitComputationCell", for: indexPath) as? ComputationCollectionViewCell<DoubleDigitComputationView>
-//            collectionViewCell?.configure(with: self.comparisons[indexPath.row])
-//            return collectionViewCell ?? UICollectionViewCell()
-            return UICollectionViewCell()
+            let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DoubleDigitComparisonCell", for: indexPath) as? ComparisonCollectionViewCell<DoubleDigitComparisonView>
+            collectionViewCell?.configure(with: self.comparisons[indexPath.row])
+            return collectionViewCell ?? UICollectionViewCell()
         }
     }
     

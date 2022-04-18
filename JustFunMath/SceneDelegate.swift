@@ -17,8 +17,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
      * ☑️ refactor ComputationsGenerator to stop using static
      * - refactor sorting screens to have input array at the bottom, and use collection view for output array, similar to computation vc
      * ☑️ persist settings data in user defaults
-     * - add comparison exercise type
+     * ☑️ add comparison exercise type
      * - make numbers bigger
+     * - make numbers views general, so exercises look good with any number of digits (without using single/double digit views)
+     * - make computation and comparison view controllers generic, so only one class is needed
      */
 
     var window: UIWindow?
