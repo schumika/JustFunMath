@@ -21,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
      * - make numbers bigger
      * - make numbers views general, so exercises look good with any number of digits (without using single/double digit views)
      * - make computation and comparison view controllers generic, so only one class is needed
+     * - have the last item selected so that it can be used in multiple places by simple tap
      */
 
     var window: UIWindow?
