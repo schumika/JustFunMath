@@ -36,8 +36,7 @@ class ComparisonViewController: ExerciseViewController, UICollectionViewDataSour
             self.collectionView.delegate = self
             self.collectionView.collectionViewLayout = layout
             
-            self.collectionView.register(ComparisonCollectionViewCell<SingleDigitComparisonView>.self, forCellWithReuseIdentifier: "SingleDigitComparisonCell")
-            self.collectionView.register(ComparisonCollectionViewCell<DoubleDigitComparisonView>.self, forCellWithReuseIdentifier: "DoubleDigitComparisonCell")
+            self.collectionView.register(ExerciseCollectionViewCell<ComparisonView>.self, forCellWithReuseIdentifier:"ComparisonCell")
         }
     }
     
@@ -98,7 +97,7 @@ class ComparisonViewController: ExerciseViewController, UICollectionViewDataSour
     }
     var comparisons: [Comparison] = []
 
-    var allDigitLabels: [RoundLabelView] = []
+    var allDigitLabels: [SingleDigitView] = []
 
     func configureBoard() {
         self.computationsCompleted = false
@@ -115,7 +114,7 @@ class ComparisonViewController: ExerciseViewController, UICollectionViewDataSour
             guard let subviews = (substack as? UIStackView)?.arrangedSubviews else { return }
             for (ind2, subview) in  subviews.enumerated() {
                 
-            guard let roundLabelView = subview as? RoundLabelView else { return }
+            guard let roundLabelView = subview as? SingleDigitView else { return }
             let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
 
             roundLabelView.configure(with: "\(signs[ind2])", panGestureRecognizer: panGestureRecognizer)
@@ -124,19 +123,10 @@ class ComparisonViewController: ExerciseViewController, UICollectionViewDataSour
         }
     }
     
-    private func comparisonViews() -> [ComparisonViewProtocol] {
-        var comparisonViews: [ComparisonViewProtocol] = []
-        if self.viewModel.isSingleDigit {
-            for cell in self.collectionView.visibleCells.compactMap({ $0 as? ComparisonCollectionViewCell<SingleDigitComparisonView> }) {
-                comparisonViews.append(cell.comparisonView)
-            }
-        } else {
-            for cell in self.collectionView.visibleCells.compactMap({ $0 as? ComparisonCollectionViewCell<DoubleDigitComparisonView> }) {
-                comparisonViews.append(cell.comparisonView)
-            }
-        }
-        
-        return comparisonViews
+    private func comparisonViews() -> [ExerciseViewProtocol] {
+        return self.collectionView.visibleCells
+            .compactMap { $0 as? ExerciseCollectionViewCell<ComparisonView> }
+            .map { $0.exerciseView }
     }
 
     override func doneButtonClicked(_ sender: Any) {
@@ -157,15 +147,9 @@ class ComparisonViewController: ExerciseViewController, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if self.viewModel.isSingleDigit {
-            let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "SingleDigitComparisonCell", for: indexPath) as? ComparisonCollectionViewCell<SingleDigitComparisonView>
-            collectionViewCell?.configure(with: self.comparisons[indexPath.row])
-            return collectionViewCell ?? UICollectionViewCell()
-        } else {
-            let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DoubleDigitComparisonCell", for: indexPath) as? ComparisonCollectionViewCell<DoubleDigitComparisonView>
-            collectionViewCell?.configure(with: self.comparisons[indexPath.row])
-            return collectionViewCell ?? UICollectionViewCell()
-        }
+        let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ComparisonCell", for: indexPath) as? ExerciseCollectionViewCell<ComparisonView>
+        collectionViewCell?.configure(with: self.comparisons[indexPath.row], isSingleDigit: self.viewModel.isSingleDigit)
+        return collectionViewCell ?? UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

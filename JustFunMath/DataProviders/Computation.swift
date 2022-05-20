@@ -28,9 +28,21 @@ extension Operator {
     }
 }
 
-class Computation {
-    let term1: Int
-    let term2: Int
+protocol ExerciseProtocol {
+    var term1: Int { get }
+    var term2: Int { get }
+    var operatorDescription: String { get }
+    
+    func isCorrect(result: String) -> Bool
+}
+
+extension ExerciseProtocol {
+    var operatorDescription: String { "" }
+}
+
+class Computation: ExerciseProtocol {
+    var term1: Int
+    var term2: Int
     let op: Operator
     var operatorDescription: String {
         self.op.description
@@ -44,6 +56,10 @@ class Computation {
     
     var correctResult: Int {
         return self.op.operation(self.term1, self.term2)
+    }
+    
+    func isCorrect(result: String) -> Bool {
+        String(self.correctResult) == result
     }
 }
 

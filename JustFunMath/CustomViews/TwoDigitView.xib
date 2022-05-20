@@ -20,14 +20,14 @@
             <rect key="frame" x="0.0" y="0.0" width="335" height="162"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CA3-ZJ-6U0" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CA3-ZJ-6U0" customClass="SingleDigitView" customModule="JustFunMath" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="41" width="161" height="80"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="q6D-uf-tL5"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lYP-q2-Xsi" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lYP-q2-Xsi" customClass="SingleDigitView" customModule="JustFunMath" customModuleProvider="target">
                     <rect key="frame" x="174" y="41" width="161" height="80"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>

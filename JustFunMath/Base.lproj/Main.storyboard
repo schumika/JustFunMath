@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="ipad10_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -14,29 +13,29 @@
             <objects>
                 <viewController storyboardIdentifier="SortViewController" id="BYZ-38-t0r" customClass="SortViewController" customModule="JustFunMath" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brickWall.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="OBc-wf-Ehr">
-                                <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackboard2.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="iAU-k4-c8W">
-                                <rect key="frame" x="20" y="20" width="1140" height="780"/>
+                                <rect key="frame" x="20" y="20" width="560" height="560"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gEn-ZT-afn">
-                                <rect key="frame" x="196" y="33" width="795" height="754"/>
+                                <rect key="frame" x="113" y="33" width="379" height="534"/>
                                 <subviews>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZ6-Np-NQP">
-                                        <rect key="frame" x="369.5" y="351.5" width="55.5" height="51"/>
+                                        <rect key="frame" x="161.5" y="241.5" width="55.5" height="51"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="40"/>
                                         <color key="textColor" systemColor="systemGreenColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8HV-Q3-EZL" userLabel="TopView">
-                                        <rect key="frame" x="0.0" y="0.0" width="795" height="205"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="379" height="150"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ordoneaza crescator sirul de numere:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ryj-ep-fDX">
-                                                <rect key="frame" x="0.0" y="0.0" width="795" height="205"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="379" height="150"/>
                                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="50"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -51,16 +50,16 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O34-v5-3zM" userLabel="BottomView">
-                                        <rect key="frame" x="0.0" y="188.5" width="795" height="565.5"/>
+                                        <rect key="frame" x="0.0" y="133.5" width="379" height="400.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jAd-qs-Brn">
-                                                <rect key="frame" x="0.0" y="0.0" width="795" height="283"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="379" height="200.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="juv-5e-gOv">
-                                                        <rect key="frame" x="20" y="106.5" width="755" height="70"/>
+                                                        <rect key="frame" x="20" y="65" width="339" height="70"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kg5-UH-EcY" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="129.5" height="70"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kg5-UH-EcY" customClass="SingleDigitView" customModule="JustFunMath" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="46" height="70"/>
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785962253273" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -68,8 +67,8 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q2W-QC-FDP" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
-                                                                <rect key="frame" x="156.5" y="0.0" width="129" height="70"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q2W-QC-FDP" customClass="SingleDigitView" customModule="JustFunMath" customModuleProvider="target">
+                                                                <rect key="frame" x="73" y="0.0" width="46.5" height="70"/>
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -77,8 +76,8 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UqG-J5-ZWM" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
-                                                                <rect key="frame" x="312.5" y="0.0" width="129.5" height="70"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UqG-J5-ZWM" customClass="SingleDigitView" customModule="JustFunMath" customModuleProvider="target">
+                                                                <rect key="frame" x="146.5" y="0.0" width="46" height="70"/>
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -86,8 +85,8 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NnT-QI-zuc" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
-                                                                <rect key="frame" x="469" y="0.0" width="129.5" height="70"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NnT-QI-zuc" customClass="SingleDigitView" customModule="JustFunMath" customModuleProvider="target">
+                                                                <rect key="frame" x="219.5" y="0.0" width="46" height="70"/>
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -95,8 +94,8 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v7u-UY-mZH" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
-                                                                <rect key="frame" x="625.5" y="0.0" width="129.5" height="70"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v7u-UY-mZH" customClass="SingleDigitView" customModule="JustFunMath" customModuleProvider="target">
+                                                                <rect key="frame" x="292.5" y="0.0" width="46.5" height="70"/>
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -118,13 +117,13 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TEo-kR-YCB">
-                                                <rect key="frame" x="0.0" y="283" width="795" height="282.5"/>
+                                                <rect key="frame" x="0.0" y="200.5" width="379" height="200"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="em7-dK-yZl">
-                                                        <rect key="frame" x="20" y="106" width="755" height="70"/>
+                                                        <rect key="frame" x="20" y="65" width="339" height="70"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mI8-SR-daq" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="129.5" height="70"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mI8-SR-daq" customClass="SingleDigitView" customModule="JustFunMath" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="46" height="70"/>
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -132,8 +131,8 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="up5-xq-5Ek" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
-                                                                <rect key="frame" x="156.5" y="0.0" width="129" height="70"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="up5-xq-5Ek" customClass="SingleDigitView" customModule="JustFunMath" customModuleProvider="target">
+                                                                <rect key="frame" x="73" y="0.0" width="46.5" height="70"/>
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -141,8 +140,8 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yHE-xI-tHO" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
-                                                                <rect key="frame" x="312.5" y="0.0" width="129.5" height="70"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yHE-xI-tHO" customClass="SingleDigitView" customModule="JustFunMath" customModuleProvider="target">
+                                                                <rect key="frame" x="146.5" y="0.0" width="46" height="70"/>
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -150,8 +149,8 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Axa-RM-yFO" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
-                                                                <rect key="frame" x="469" y="0.0" width="129.5" height="70"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Axa-RM-yFO" customClass="SingleDigitView" customModule="JustFunMath" customModuleProvider="target">
+                                                                <rect key="frame" x="219.5" y="0.0" width="46" height="70"/>
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -159,8 +158,8 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQN-Qh-JcR" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
-                                                                <rect key="frame" x="625.5" y="0.0" width="129.5" height="70"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQN-Qh-JcR" customClass="SingleDigitView" customModule="JustFunMath" customModuleProvider="target">
+                                                                <rect key="frame" x="292.5" y="0.0" width="46.5" height="70"/>
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -209,7 +208,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v3a-vO-6zA" userLabel="LeftSeparator">
-                                <rect key="frame" x="33" y="32" width="163" height="755"/>
+                                <rect key="frame" x="33" y="32" width="80" height="535"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tC4-Ar-No1">
                                         <rect key="frame" x="8.5" y="23" width="164.5" height="60"/>
@@ -239,10 +238,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mxq-Zl-6Dj" userLabel="RightSeparator">
-                                <rect key="frame" x="988" y="33" width="159" height="754"/>
+                                <rect key="frame" x="489" y="33" width="78" height="534"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5y-Vg-Hrg">
-                                        <rect key="frame" x="12" y="679" width="135" height="60"/>
+                                        <rect key="frame" x="-28.5" y="459" width="135" height="60"/>
                                         <color key="backgroundColor" red="0.24705882370471954" green="0.38823530077934265" blue="0.54509806632995605" alpha="0.8158721923828125" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="135" id="FP3-YS-WK7"/>
@@ -315,29 +314,29 @@
             <objects>
                 <viewController storyboardIdentifier="ComputationViewController" id="LMM-3o-agM" customClass="ComputationViewController" customModule="JustFunMath" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D5G-y1-NBI">
-                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brickWall.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="mIv-FJ-MvS">
-                                <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackboard2.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="REY-4m-0qk">
-                                <rect key="frame" x="20" y="20" width="1140" height="780"/>
+                                <rect key="frame" x="20" y="20" width="560" height="560"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HUa-Zx-EeS">
-                                <rect key="frame" x="196" y="33" width="795" height="754"/>
+                                <rect key="frame" x="113" y="33" width="379" height="534"/>
                                 <subviews>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9CO-78-s8M">
-                                        <rect key="frame" x="369.5" y="351.5" width="55.5" height="51"/>
+                                        <rect key="frame" x="161.5" y="241.5" width="55.5" height="51"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="40"/>
                                         <color key="textColor" systemColor="systemGreenColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nht-kk-9n4" userLabel="TitleView">
-                                        <rect key="frame" x="0.0" y="0.0" width="795" height="205"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="379" height="150"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efectueaza operatiile:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UFx-Z7-Ap1">
-                                                <rect key="frame" x="0.0" y="0.0" width="795" height="205"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="379" height="150"/>
                                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="50"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -352,13 +351,13 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="prh-mz-YMb" userLabel="ExerciseView">
-                                        <rect key="frame" x="0.0" y="188.5" width="795" height="565.5"/>
+                                        <rect key="frame" x="0.0" y="133.5" width="379" height="400.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L4W-jO-6Xx" userLabel="TopView">
-                                                <rect key="frame" x="0.0" y="0.0" width="795" height="424"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="379" height="300.5"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ShQ-m5-D2r">
-                                                        <rect key="frame" x="0.0" y="20" width="795" height="384"/>
+                                                        <rect key="frame" x="0.0" y="20" width="379" height="260.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="30p-fh-eun">
                                                             <size key="itemSize" width="128" height="128"/>
@@ -387,23 +386,23 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKw-4L-xIx" userLabel="BottomView">
-                                                <rect key="frame" x="0.0" y="424" width="795" height="141.5"/>
+                                                <rect key="frame" x="0.0" y="300.5" width="379" height="100"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="twU-3r-gHq">
-                                                        <rect key="frame" x="0.0" y="0.0" width="795" height="1"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="379" height="1"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="8rq-qE-5A6"/>
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="H8J-9N-Yew">
-                                                        <rect key="frame" x="20" y="36" width="755.5" height="70"/>
+                                                        <rect key="frame" x="20" y="15" width="339.5" height="70"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="DuL-Gz-x20">
-                                                                <rect key="frame" x="0.0" y="0.0" width="755.5" height="70"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="339.5" height="70"/>
                                                                 <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5V-cL-7mM" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="64.5" height="70"/>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5V-cL-7mM" customClass="SingleDigitView" customModule="JustFunMath" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="23" height="70"/>
                                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -411,8 +410,8 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rDu-qe-QZ0" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
-                                                                        <rect key="frame" x="76.5" y="0.0" width="65" height="70"/>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rDu-qe-QZ0" customClass="SingleDigitView" customModule="JustFunMath" customModuleProvider="target">
+                                                                        <rect key="frame" x="35" y="0.0" width="23.5" height="70"/>
                                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -420,8 +419,8 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3mF-lW-8d5" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
-                                                                        <rect key="frame" x="153.5" y="0.0" width="64.5" height="70"/>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3mF-lW-8d5" customClass="SingleDigitView" customModule="JustFunMath" customModuleProvider="target">
+                                                                        <rect key="frame" x="70.5" y="0.0" width="23" height="70"/>
                                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -429,8 +428,8 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="edf-P1-cvj" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
-                                                                        <rect key="frame" x="230" y="0.0" width="65" height="70"/>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="edf-P1-cvj" customClass="SingleDigitView" customModule="JustFunMath" customModuleProvider="target">
+                                                                        <rect key="frame" x="105.5" y="0.0" width="23" height="70"/>
                                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -438,8 +437,8 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8zT-hg-s33" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
-                                                                        <rect key="frame" x="307" y="0.0" width="64.5" height="70"/>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8zT-hg-s33" customClass="SingleDigitView" customModule="JustFunMath" customModuleProvider="target">
+                                                                        <rect key="frame" x="140.5" y="0.0" width="23" height="70"/>
                                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -447,8 +446,8 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wsi-up-6vz" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
-                                                                        <rect key="frame" x="383.5" y="0.0" width="65" height="70"/>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wsi-up-6vz" customClass="SingleDigitView" customModule="JustFunMath" customModuleProvider="target">
+                                                                        <rect key="frame" x="175.5" y="0.0" width="23.5" height="70"/>
                                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -456,8 +455,8 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dkC-iq-E41" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
-                                                                        <rect key="frame" x="460.5" y="0.0" width="64.5" height="70"/>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dkC-iq-E41" customClass="SingleDigitView" customModule="JustFunMath" customModuleProvider="target">
+                                                                        <rect key="frame" x="211" y="0.0" width="23" height="70"/>
                                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -465,8 +464,8 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e9Q-XT-SUy" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
-                                                                        <rect key="frame" x="537" y="0.0" width="65" height="70"/>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e9Q-XT-SUy" customClass="SingleDigitView" customModule="JustFunMath" customModuleProvider="target">
+                                                                        <rect key="frame" x="246" y="0.0" width="23" height="70"/>
                                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -474,8 +473,8 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J7m-5A-YQM" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
-                                                                        <rect key="frame" x="614" y="0.0" width="64.5" height="70"/>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J7m-5A-YQM" customClass="SingleDigitView" customModule="JustFunMath" customModuleProvider="target">
+                                                                        <rect key="frame" x="281" y="0.0" width="23" height="70"/>
                                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -483,8 +482,8 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z14-Ji-aZW" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
-                                                                        <rect key="frame" x="690.5" y="0.0" width="65" height="70"/>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z14-Ji-aZW" customClass="SingleDigitView" customModule="JustFunMath" customModuleProvider="target">
+                                                                        <rect key="frame" x="316" y="0.0" width="23.5" height="70"/>
                                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -538,7 +537,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LvA-fw-U8Y" userLabel="LeftSeparator">
-                                <rect key="frame" x="33" y="32" width="163" height="755"/>
+                                <rect key="frame" x="33" y="32" width="80" height="535"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDl-qU-syb">
                                         <rect key="frame" x="8.5" y="23" width="164.5" height="60"/>
@@ -568,10 +567,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U3t-Xz-gtr" userLabel="RightSeparator">
-                                <rect key="frame" x="988" y="33" width="159" height="754"/>
+                                <rect key="frame" x="489" y="33" width="78" height="534"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thq-aK-OHQ">
-                                        <rect key="frame" x="12" y="679" width="135" height="60"/>
+                                        <rect key="frame" x="-28.5" y="459" width="135" height="60"/>
                                         <color key="backgroundColor" red="0.24705882370000001" green="0.38823530080000002" blue="0.54509806630000002" alpha="0.81587219239999997" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="135" id="3HY-6r-avl"/>
@@ -644,17 +643,17 @@
             <objects>
                 <viewController storyboardIdentifier="SettingsViewController" id="7Pe-d9-XdY" customClass="SettingsViewController" customModule="JustFunMath" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h5g-NZ-IXz">
-                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brickWall.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="TnM-J7-5GD">
-                                <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackboard_core.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="w11-1d-reT">
-                                <rect key="frame" x="20" y="20" width="1140" height="780"/>
+                                <rect key="frame" x="20" y="20" width="560" height="560"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6CB-HP-a05">
-                                <rect key="frame" x="950" y="703" width="190" height="57"/>
+                                <rect key="frame" x="370" y="503" width="190" height="57"/>
                                 <color key="backgroundColor" red="0.24705882370000001" green="0.38823530080000002" blue="0.54509806630000002" alpha="0.81587219239999997" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="422-09-e9S"/>
@@ -674,7 +673,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="JJx-v2-Z8l">
-                                <rect key="frame" x="40" y="36" width="1100" height="664"/>
+                                <rect key="frame" x="40" y="12" width="520" height="488"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CiT-0w-aQB"/>
@@ -709,29 +708,29 @@
             <objects>
                 <viewController storyboardIdentifier="ComparisonViewController" id="413-5d-QPn" customClass="ComparisonViewController" customModule="JustFunMath" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gaQ-iY-Qh2">
-                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brickWall.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="bB6-UJ-uBv">
-                                <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackboard2.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="UBb-1X-Gyp">
-                                <rect key="frame" x="20" y="20" width="1140" height="780"/>
+                                <rect key="frame" x="20" y="20" width="560" height="560"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i2P-xY-qgU">
-                                <rect key="frame" x="196" y="33" width="795" height="754"/>
+                                <rect key="frame" x="113" y="33" width="379" height="534"/>
                                 <subviews>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0p-HZ-kac">
-                                        <rect key="frame" x="369.5" y="351.5" width="55.5" height="51"/>
+                                        <rect key="frame" x="161.5" y="241.5" width="55.5" height="51"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="40"/>
                                         <color key="textColor" systemColor="systemGreenColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="45N-ng-2gP" userLabel="TitleView">
-                                        <rect key="frame" x="0.0" y="0.0" width="795" height="205"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="379" height="150"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efectueaza comparatiile:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vJa-Xr-H9J">
-                                                <rect key="frame" x="0.0" y="0.0" width="795" height="205"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="379" height="150"/>
                                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="50"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -746,13 +745,13 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lxj-q0-Aj2" userLabel="ExerciseView">
-                                        <rect key="frame" x="0.0" y="188.5" width="795" height="565.5"/>
+                                        <rect key="frame" x="0.0" y="133.5" width="379" height="400.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="58m-2M-CS6" userLabel="TopView">
-                                                <rect key="frame" x="0.0" y="0.0" width="795" height="424"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="379" height="300.5"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2yP-15-Ijg">
-                                                        <rect key="frame" x="0.0" y="20" width="795" height="384"/>
+                                                        <rect key="frame" x="0.0" y="20" width="379" height="260.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="g8f-zH-T1T">
                                                             <size key="itemSize" width="128" height="128"/>
@@ -781,23 +780,23 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1lh-bh-EqM" userLabel="BottomView">
-                                                <rect key="frame" x="0.0" y="424" width="795" height="141.5"/>
+                                                <rect key="frame" x="0.0" y="300.5" width="379" height="100"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ib-2F-OWj">
-                                                        <rect key="frame" x="0.0" y="0.0" width="795" height="1"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="379" height="1"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="FT9-wC-ueB"/>
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="15Q-89-yAN">
-                                                        <rect key="frame" x="100" y="36" width="595" height="70"/>
+                                                        <rect key="frame" x="100" y="15" width="179" height="70"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="W4y-hj-Qom">
-                                                                <rect key="frame" x="0.0" y="0.0" width="595" height="70"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="179" height="70"/>
                                                                 <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L0W-lg-cjj" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="165" height="70"/>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L0W-lg-cjj" customClass="SingleDigitView" customModule="JustFunMath" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="26.5" height="70"/>
                                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -805,8 +804,8 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XVG-e5-iQr" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
-                                                                        <rect key="frame" x="215" y="0.0" width="165" height="70"/>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XVG-e5-iQr" customClass="SingleDigitView" customModule="JustFunMath" customModuleProvider="target">
+                                                                        <rect key="frame" x="76.5" y="0.0" width="26" height="70"/>
                                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -814,8 +813,8 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Go-Jk-peY" customClass="RoundLabelView" customModule="JustFunMath" customModuleProvider="target">
-                                                                        <rect key="frame" x="430" y="0.0" width="165" height="70"/>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Go-Jk-peY" customClass="SingleDigitView" customModule="JustFunMath" customModuleProvider="target">
+                                                                        <rect key="frame" x="152.5" y="0.0" width="26.5" height="70"/>
                                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10585785960000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -869,7 +868,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="41f-mN-2Lv" userLabel="LeftSeparator">
-                                <rect key="frame" x="33" y="32" width="163" height="755"/>
+                                <rect key="frame" x="33" y="32" width="80" height="535"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F3h-c5-chh">
                                         <rect key="frame" x="8.5" y="23" width="164.5" height="60"/>
@@ -899,10 +898,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iZB-Pp-r8i" userLabel="RightSeparator">
-                                <rect key="frame" x="988" y="33" width="159" height="754"/>
+                                <rect key="frame" x="489" y="33" width="78" height="534"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ReL-ru-N1i">
-                                        <rect key="frame" x="12" y="679" width="135" height="60"/>
+                                        <rect key="frame" x="-28.5" y="459" width="135" height="60"/>
                                         <color key="backgroundColor" red="0.24705882370000001" green="0.38823530080000002" blue="0.54509806630000002" alpha="0.81587219239999997" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="135" id="DCv-zH-igt"/>

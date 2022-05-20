@@ -11,7 +11,7 @@ enum ComparisonResult {
     case greaterThan, lessThan, equalTo
 }
 
-class Comparison {
+class Comparison: ExerciseProtocol {
     let term1: Int
     let term2: Int
     

@@ -47,10 +47,10 @@ class ExerciseViewController: BoardViewController {
     
     var panTrackingPoint = CGPoint.zero
     var panStartingPoint = CGPoint.zero
-    var selectedView: RoundLabelView?
+    var selectedView: SingleDigitView?
     
-    var sourceViews: [RoundLabelView] = []
-    var destinationViews: [RoundLabelView] = []
+    var sourceViews: [SingleDigitView] = []
+    var destinationViews: [SingleDigitView] = []
     
     var onMovingEnded: ()->() = { }
 

@@ -36,8 +36,7 @@ class ComputationViewController: ExerciseViewController, UICollectionViewDataSou
             self.collectionView.delegate = self
             self.collectionView.collectionViewLayout = layout
             
-            self.collectionView.register(ComputationCollectionViewCell<SingleDigitComputationView>.self, forCellWithReuseIdentifier: "SingleDigitComputationCell")
-            self.collectionView.register(ComputationCollectionViewCell<DoubleDigitComputationView>.self, forCellWithReuseIdentifier: "DoubleDigitComputationCell")
+            self.collectionView.register(ExerciseCollectionViewCell<ComputationView>.self, forCellWithReuseIdentifier: "ComputationCell")
         }
     }
     
@@ -98,7 +97,7 @@ class ComputationViewController: ExerciseViewController, UICollectionViewDataSou
     }
     var computations: [Computation] = []
 
-    var allDigitLabels: [RoundLabelView] = []
+    var allDigitLabels: [SingleDigitView] = []
 
     func configureBoard() {
         self.computationsCompleted = false
@@ -113,7 +112,7 @@ class ComputationViewController: ExerciseViewController, UICollectionViewDataSou
             guard let subviews = (substack as? UIStackView)?.arrangedSubviews else { return }
             for (ind2, subview) in  subviews.enumerated() {
                 
-            guard let roundLabelView = subview as? RoundLabelView else { return }
+            guard let roundLabelView = subview as? SingleDigitView else { return }
             let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
 
             roundLabelView.configure(with: "\((ind1 == 0 ? 0 : 5) + ind2)", panGestureRecognizer: panGestureRecognizer)
@@ -122,19 +121,10 @@ class ComputationViewController: ExerciseViewController, UICollectionViewDataSou
         }
     }
     
-    private func computationViews() -> [ComputationViewProtocol] {
-        var computationViews: [ComputationViewProtocol] = []
-        if self.viewModel.isSingleDigit {
-            for cell in self.collectionView.visibleCells.compactMap({ $0 as? ComputationCollectionViewCell<SingleDigitComputationView> }) {
-                computationViews.append(cell.computationView)
-            }
-        } else {
-            for cell in self.collectionView.visibleCells.compactMap({ $0 as? ComputationCollectionViewCell<DoubleDigitComputationView> }) {
-                computationViews.append(cell.computationView)
-            }
-        }
-        
-        return computationViews
+    private func computationViews() -> [ExerciseViewProtocol] {
+        return self.collectionView.visibleCells
+            .compactMap { $0 as? ExerciseCollectionViewCell<ComputationView> }
+            .map { $0.exerciseView }
     }
 
     override func doneButtonClicked(_ sender: Any) {
@@ -155,15 +145,9 @@ class ComputationViewController: ExerciseViewController, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if self.viewModel.isSingleDigit {
-            let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "SingleDigitComputationCell", for: indexPath) as? ComputationCollectionViewCell<SingleDigitComputationView>
-            collectionViewCell?.configure(with: self.computations[indexPath.row])
-            return collectionViewCell ?? UICollectionViewCell()
-        } else {
-            let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DoubleDigitComputationCell", for: indexPath) as? ComputationCollectionViewCell<DoubleDigitComputationView>
-            collectionViewCell?.configure(with: self.computations[indexPath.row])
-            return collectionViewCell ?? UICollectionViewCell()
-        }
+        let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ComputationCell", for: indexPath) as? ExerciseCollectionViewCell<ComputationView>
+        collectionViewCell?.configure(with: self.computations[indexPath.row], isSingleDigit: self.viewModel.isSingleDigit)
+        return collectionViewCell ?? UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

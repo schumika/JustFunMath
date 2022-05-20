@@ -7,8 +7,23 @@
 
 import UIKit
 
-class RoundLabelView: LazyNibLoaderView {
+protocol TextConfigurable {
+    func set(text: String)
+    func set(textColor: UIColor)
+    var maxWidth: CGFloat { get }
+    var maxHeight: CGFloat { get }
+    var resultLabels: [SingleDigitView] { get }
+    var numberValue: Int { get }
+}
+
+extension TextConfigurable {
+    func set(text: String) {}
+    var maxHeight: CGFloat { 70.0 }
+}
+
+class SingleDigitView: LazyNibLoaderView, TextConfigurable {
     @IBOutlet weak var label: TouchableLabel!
+    var maxWidth: CGFloat { 60.0 }
     
     func set(textColor: UIColor) {
         self.label.textColor = textColor
@@ -17,6 +32,10 @@ class RoundLabelView: LazyNibLoaderView {
     func set(text: String) {
         self.label.text = text
         self.label.backgroundColor = .clear
+    }
+    
+    var resultLabels: [SingleDigitView] {
+        return [self]
     }
     
     func configure(with text: String, panGestureRecognizer: UIPanGestureRecognizer) {

@@ -8,9 +8,15 @@
 import UIKit
 
 
-class TwoDigitView: LazyNibLoaderView {
-    @IBOutlet weak var digit1Label: RoundLabelView!
-    @IBOutlet weak var digit2Label: RoundLabelView!
+class TwoDigitView: LazyNibLoaderView, TextConfigurable {
+    @IBOutlet weak var digit1Label: SingleDigitView!
+    @IBOutlet weak var digit2Label: SingleDigitView!
+    
+    var resultLabels: [SingleDigitView] {
+        return [digit1Label, digit2Label]
+    }
+    
+    var maxWidth: CGFloat { 130.0 }
     
     func configure(with text: String, panGestureRecognizer: UIPanGestureRecognizer) {
         

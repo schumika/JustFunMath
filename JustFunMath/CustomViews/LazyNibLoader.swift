@@ -13,7 +13,12 @@ class LazyNibLoaderView: UIView {
     func setup() {
         guard self.containerView == nil else { return }
 
-        Bundle.main.loadNibNamed("\(type(of: self))", owner: self)
+        let originalFilename = "\(type(of: self))"
+        var filename = originalFilename
+        if let ind = originalFilename.firstIndex(of: "<") {
+            filename = String(originalFilename.prefix(upTo: ind))
+        }
+        Bundle.main.loadNibNamed(filename, owner: self)
         //UIUtils.addCustomSubview(self.containerView, flushToSuper: self)
         
         self.containerView.translatesAutoresizingMaskIntoConstraints = false

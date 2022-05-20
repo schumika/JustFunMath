@@ -26,7 +26,7 @@ class SortViewController: ExerciseViewController {
         // Do any additional setup after loading the view.
         
         self.onMovingEnded = {
-            let subviews = self.outputStack.arrangedSubviews.compactMap({ $0 as? RoundLabelView })
+            let subviews = self.outputStack.arrangedSubviews.compactMap({ $0 as? SingleDigitView })
             self.sortCompleted = self.isFull(array: subviews)
         }
     }
@@ -43,8 +43,8 @@ class SortViewController: ExerciseViewController {
     }
     
     func getSourceAndDestinationViews() {
-        var allRoundedLabels = (self.inputStack.arrangedSubviews.compactMap({ $0 as? RoundLabelView }))
-        allRoundedLabels.append(contentsOf: self.outputStack.arrangedSubviews.compactMap({ $0 as? RoundLabelView }))
+        var allRoundedLabels = (self.inputStack.arrangedSubviews.compactMap({ $0 as? SingleDigitView }))
+        allRoundedLabels.append(contentsOf: self.outputStack.arrangedSubviews.compactMap({ $0 as? SingleDigitView }))
         
         self.sourceViews = allRoundedLabels
         self.destinationViews = allRoundedLabels
@@ -70,8 +70,8 @@ class SortViewController: ExerciseViewController {
         
         for (ind, numberView) in views.enumerated() {
             let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
-            (numberView as? RoundLabelView)?.configure(with: "\(strings[ind])", panGestureRecognizer: panGestureRecognizer)
-            (numberView as? RoundLabelView)?.clearsAfterMoving = true
+            (numberView as? SingleDigitView)?.configure(with: "\(strings[ind])", panGestureRecognizer: panGestureRecognizer)
+            (numberView as? SingleDigitView)?.clearsAfterMoving = true
         }
     }
     
@@ -83,11 +83,11 @@ class SortViewController: ExerciseViewController {
     }
     
     @IBAction func handleDoubleTap(_ recognizer: UITapGestureRecognizer) {
-        guard recognizer.state == .recognized, let movingLabel = (recognizer.view as? RoundLabelView)?.label else { return }
+        guard recognizer.state == .recognized, let movingLabel = (recognizer.view as? SingleDigitView)?.label else { return }
         
         // search for open spot in input stack
-        let openSpot = inputStack.arrangedSubviews.first { (($0 as? RoundLabelView)?.label.text ?? "")?.isEmpty ?? false }
-        guard let openSpot = (openSpot as? RoundLabelView)?.label else { return }
+        let openSpot = inputStack.arrangedSubviews.first { (($0 as? SingleDigitView)?.label.text ?? "")?.isEmpty ?? false }
+        guard let openSpot = (openSpot as? SingleDigitView)?.label else { return }
         
         // move view to open spot
         UIView.animate(withDuration: 0.2) {
@@ -105,7 +105,7 @@ class SortViewController: ExerciseViewController {
     }
     
     override func doneButtonClicked(_ sender: Any) {
-        guard let subviews = self.outputStack.arrangedSubviews as? [RoundLabelView] else { return }
+        guard let subviews = self.outputStack.arrangedSubviews as? [SingleDigitView] else { return }
         
         self.animate(isCorrect: self.viewModel.isSorted(output: self.extractedSolution(array: subviews))) {
             super.doneButtonClicked(sender)
@@ -117,11 +117,11 @@ class SortViewController: ExerciseViewController {
         }
     }
     
-    func isFull(array: [RoundLabelView]) -> Bool {
+    func isFull(array: [SingleDigitView]) -> Bool {
         array.first { ($0.label.text ?? "")?.isEmpty ?? false } == nil
     }
     
-    func extractedSolution(array: [RoundLabelView]) -> [Int] {
+    func extractedSolution(array: [SingleDigitView]) -> [Int] {
         return array.compactMap { Int($0.label.text ?? "") }
     }
 }
@@ -138,8 +138,8 @@ extension UIView {
         return true
     }
     
-    func closestViewForSnapping(views: [UIView], in contaier: UIView) -> RoundLabelView? {
-        let labels = views.compactMap { $0 as? RoundLabelView }
+    func closestViewForSnapping(views: [UIView], in contaier: UIView) -> SingleDigitView? {
+        let labels = views.compactMap { $0 as? SingleDigitView }
         return labels.first { self.isCloseEnoughToSnap(to: $0, in: contaier) && ($0.label.text?.isEmpty ?? false )}
     }
 }
